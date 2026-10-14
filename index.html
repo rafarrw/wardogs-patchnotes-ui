@@ -88,6 +88,52 @@ a:hover{color:var(--mustard)}
 .lang button{padding:6px 9px}
 @media (max-width:600px){.chk .long{display:none}.nav-tools{gap:10px}}
 
+/* ---------- busca ---------- */
+.nav .wrap{position:relative}
+.search{display:flex;align-items:center;gap:8px}
+.search-box{position:relative;display:flex;align-items:center}
+.search-box svg{position:absolute;left:10px;color:var(--muted);pointer-events:none}
+.search-box input{width:230px;height:32px;background:var(--panel);border:1px solid var(--axis);border-radius:0;color:var(--ink);font-family:var(--text);font-size:14px;padding:0 30px 0 33px;outline:none;-webkit-appearance:none;appearance:none}
+.search-box input:focus{border-color:var(--mustard)}
+.search-box input::placeholder{color:var(--muted)}
+.search-box input::-webkit-search-cancel-button{display:none}
+.search-box kbd{position:absolute;right:7px;font-family:var(--text);font-size:11px;font-weight:600;color:var(--muted);border:1px solid var(--axis);padding:0 5px;line-height:16px}
+.search-btn,.search-close{display:none;place-items:center;width:34px;height:32px;background:transparent;border:1px solid var(--axis);color:var(--ink-2);cursor:pointer;padding:0}
+.search-btn:hover,.search-close:hover{color:var(--ink);background:var(--hover)}
+.search-res{position:absolute;top:100%;right:20px;width:min(660px,calc(100vw - 32px));max-height:min(72vh,600px);overflow:auto;background:var(--page);border:1px solid var(--axis);z-index:40}
+.sr-head,.sr-empty{padding:9px 14px;font-size:13px;color:var(--muted);border-bottom:1px solid var(--line)}
+.sr-empty{border-bottom:0;font-size:14px}
+.sr{display:grid;grid-template-columns:56px minmax(0,1fr) auto 76px;grid-template-areas:"th m v d";column-gap:12px;align-items:center;width:100%;padding:8px 14px;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--ink);text-align:left;font-family:var(--text);cursor:pointer}
+.sr:last-child{border-bottom:0}
+.sr:hover,.sr.on{background:var(--hover)}
+.sr .th{grid-area:th}
+.sr-m{grid-area:m;min-width:0}
+.sr-n{display:block;font-size:14.5px;font-weight:500;line-height:1.3}
+.sr-c{display:block;font-size:12.5px;color:var(--muted);line-height:1.35;margin-top:1px}
+.sr-v{grid-area:v;font-size:14px;white-space:nowrap;font-variant-numeric:tabular-nums;text-align:right}
+.sr-v s{text-decoration:none;color:var(--muted)}
+.sr-v b{font-weight:600}
+.sr-v .to{color:var(--muted)}
+.sr-d{grid-area:d;font-size:13.5px;font-weight:600;color:var(--ink-2);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+@keyframes flash{0%,35%{background:color-mix(in oklab,var(--mustard) 26%,transparent)}100%{background:transparent}}
+.flash,.flash>th,.flash>td{animation:flash 2.4s ease-out}
+@media (max-width:1099px){
+  .search-box{display:none}
+  .search-btn{display:grid}
+  .nav.searching .nav-links,.nav.searching .chk,.nav.searching .lang,.nav.searching .search-btn{display:none}
+  .nav.searching .nav-tools,.nav.searching .search{flex:1}
+  .nav.searching .search-box{display:flex;flex:1}
+  .nav.searching .search-box input{width:100%}
+  .nav.searching .search-close{display:grid}
+  .search-box kbd{display:none}
+  .search-res{left:0;right:0;width:auto}
+}
+@media (max-width:600px){
+  .sr{grid-template-columns:46px minmax(0,1fr) auto;grid-template-areas:"th m d" "th v v";row-gap:3px;padding:9px 12px}
+  .sr-v{text-align:left}
+  .search-res{max-height:75vh}
+}
+
 /* ---------- legenda ---------- */
 .howto{display:flex;flex-wrap:wrap;gap:6px 24px;align-items:center;padding:22px 0 0;color:var(--ink-2);font-size:14px}
 .howto .k{display:inline-flex;align-items:center;gap:8px}
@@ -290,12 +336,26 @@ footer a{color:var(--ink-2)}
       <a href="#outros" data-i18n="nav.other"></a>
     </div>
     <div class="nav-tools">
+      <div class="search">
+        <button type="button" class="search-btn" id="search-btn" data-i18n-aria="search.open">
+          <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.75" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13l4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+        </button>
+        <div class="search-box">
+          <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.75" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13l4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+          <input type="search" id="search-in" autocomplete="off" spellcheck="false" enterkeyhint="search" role="combobox" aria-expanded="false" aria-controls="search-res" aria-autocomplete="list" data-i18n-ph="search.ph" data-i18n-aria="search.open">
+          <kbd aria-hidden="true">/</kbd>
+        </div>
+        <button type="button" class="search-close" id="search-close" data-i18n-aria="search.close">
+          <svg viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4 4l12 12M16 4L4 16" stroke="currentColor" stroke-width="2"/></svg>
+        </button>
+      </div>
       <label class="chk"><input type="checkbox" id="toggle-new"><span data-i18n="toggle.new"></span></label>
       <div class="segc lang" role="group" aria-label="Idioma / Language">
-        <button type="button" data-lang="pt" aria-pressed="false" title="Português">PT</button>
         <button type="button" data-lang="en" aria-pressed="false" title="English">EN</button>
+        <button type="button" data-lang="pt" aria-pressed="false" title="Português">PT</button>
       </div>
     </div>
+    <div class="search-res" id="search-res" role="listbox" hidden></div>
   </div>
 </nav>
 
@@ -541,7 +601,7 @@ const I18N = {
     'bweap.h3': 'Armas construíveis', 'rowscale': 'Cada linha tem a sua escala.',
     'prices.h2': 'Preços no vendor',
     'price.h3': 'Preço de compra por item',
-    'price.pd': 'Cada grupo tem a sua escala em dólar. Em “Variação %”, todos usam a mesma escala.',
+    'price.pd': 'Em “Variação %” todos os grupos usam a mesma escala. Em “Valor”, cada grupo tem a sua escala em dólar.',
     'price.note': 'Acessórios: o patch diz que a maioria dos muzzles, grips e foregrips caiu até um terço, mas só lista as maiores quedas, que são as que aparecem aqui.',
     'rewards.d': 'Logística e veículos sem armamento pagam menos. Kill com arma de assalto, captura de drill tower e veículos armados pagam mais.',
     'actcash.h3': 'Ações em combate · cash', 'actxp.h3': 'Ações em combate · XP',
@@ -564,6 +624,8 @@ const I18N = {
     'foot2': 'Imagens dos itens: <a href="https://www.dexerto.com/wikis/wardogs/" rel="noopener">wiki de WARDOGS da Dexerto</a>, redimensionadas pelo <a href="https://wsrv.nl/" rel="noopener">wsrv.nl</a>. Os itens novos da Season 2 ainda não têm imagem lá.',
     'foot3': 'Página não oficial, feita por fã, sem vínculo com os desenvolvedores do jogo.',
     'ctl.abs': 'Valor', 'ctl.pct': 'Variação %', 'ctl.all': 'Todos', 'ctl.inc': 'Subiu', 'ctl.dec': 'Caiu',
+    'search.ph': 'Buscar item (ex.: Humvee)', 'search.open': 'Buscar item', 'search.close': 'Fechar busca',
+    'search.none': 'Nada encontrado para “{q}”.', 'search.one': '1 resultado', 'search.many': '{n} resultados',
     'new': 'NOVO', 'item1': 'item', 'itemN': 'itens', 'empty': 'Nada para mostrar com esse filtro.',
     'na.new': 'item novo', 'na.free': 'antes era grátis', 'na.lvl': 'nível não mudou', 'was0': 'era 0',
     'pp': ' p.p.', 'lvlu': ' nv', 'free': 'grátis', 'start': 'início', 'lvlax': 'nv ', 'level': 'Nível',
@@ -607,7 +669,7 @@ const I18N = {
     'bweap.h3': 'Buildable weapons', 'rowscale': 'Each row has its own scale.',
     'prices.h2': 'Vendor prices',
     'price.h3': 'Purchase price per item',
-    'price.pd': 'Each group has its own dollar scale. In “Change %” they all share one scale.',
+    'price.pd': 'In “Change %” every group shares one scale. In “Value” each group gets its own dollar scale.',
     'price.note': 'Attachments: the patch says most muzzles, grips and foregrips dropped by up to a third, but only lists the biggest drops, which are the ones shown here.',
     'rewards.d': 'Logistics and unarmed vehicles pay less. Assault-weapon kills, drill tower captures and armed vehicles pay more.',
     'actcash.h3': 'Combat actions · cash', 'actxp.h3': 'Combat actions · XP',
@@ -630,6 +692,8 @@ const I18N = {
     'foot2': 'Item images: <a href="https://www.dexerto.com/wikis/wardogs/" rel="noopener">Dexerto WARDOGS wiki</a>, resized by <a href="https://wsrv.nl/" rel="noopener">wsrv.nl</a>. New Season 2 items have no image there yet.',
     'foot3': 'Unofficial fan-made page, not affiliated with the game’s developers.',
     'ctl.abs': 'Value', 'ctl.pct': 'Change %', 'ctl.all': 'All', 'ctl.inc': 'Up', 'ctl.dec': 'Down',
+    'search.ph': 'Search an item (e.g. Humvee)', 'search.open': 'Search an item', 'search.close': 'Close search',
+    'search.none': 'Nothing found for “{q}”.', 'search.one': '1 result', 'search.many': '{n} results',
     'new': 'NEW', 'item1': 'item', 'itemN': 'items', 'empty': 'Nothing to show with this filter.',
     'na.new': 'new item', 'na.free': 'used to be free', 'na.lvl': 'level unchanged', 'was0': 'was 0',
     'pp': ' pts', 'lvlu': ' lvl', 'free': 'free', 'start': 'start', 'lvlax': 'lvl ', 'level': 'Level',
@@ -1342,6 +1406,23 @@ const pos = (sc, v) => (v - sc.lo) / (sc.hi - sc.lo) * 100;
 const STATE = {showNew: false};
 const RENDERERS = [];
 
+// índice da busca: cada linha da página vira uma entrada
+let SEQ = 0;
+const idOf = it => it._id || (it._id = 'r' + (++SEQ));
+const SEARCH = [];
+const norm = s => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9.]+/g, ' ').trim();
+const both = v => v == null ? [] : typeof v === 'object' ? [v.pt, v.en] : [v];
+const whereText = w => (I18N.en[w] !== undefined ? t(w) : tx(w));
+function addToIndex(e) {
+  const it = e.it;
+  idOf(it);
+  e.id = it._id;
+  e.nameHay = norm([...both(it.n), ...both(it.k)].join(' '));
+  e.ctxHay = norm([...both(e.group), e.track || '', ...e.cfg.where.map(w => (I18N.en[w] !== undefined ? [I18N.pt[w], I18N.en[w]] : both(w)).join(' '))].join(' '));
+  e.order = SEARCH.length;
+  SEARCH.push(e);
+}
+
 function segHTML(key, options, current) {
   return '<div class="segc" role="group">' + options.map(([v, k]) =>
     `<button type="button" data-k="${key}" data-v="${v}" data-i18n="${k}" aria-pressed="${v === current}">${t(k)}</button>`).join('') + '</div>';
@@ -1357,7 +1438,7 @@ function changeList(cfg) {
   const ctrl = cfg.ctrlId && document.getElementById(cfg.ctrlId);
   if (ctrl) {
     let h = '';
-    if (cfg.modes) h += segHTML('mode', [['abs', 'ctl.abs'], ['pct', 'ctl.pct']], cfg.mode);
+    if (cfg.modes) h += segHTML('mode', [['pct', 'ctl.pct'], ['abs', 'ctl.abs']], cfg.mode);
     if (cfg.filterUI) h += segHTML('dir', [['all', 'ctl.all'], ['inc', 'ctl.inc'], ['dec', 'ctl.dec']], 'all');
     ctrl.innerHTML = h;
     ctrl.addEventListener('click', e => {
@@ -1368,6 +1449,13 @@ function changeList(cfg) {
       render();
     });
   }
+  // usado pela busca: volta o filtro para "todos" para a linha aparecer
+  cfg.resetDir = () => {
+    if (cfg.dirFilter === 'all') return;
+    cfg.dirFilter = 'all';
+    if (ctrl) ctrl.querySelectorAll('button[data-k="dir"]').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.v === 'all')));
+    render();
+  };
 
   const unitOf = it => F[it.f || cfg.unit || 'num'];
 
@@ -1406,8 +1494,7 @@ function changeList(cfg) {
   }
 
   function rowHTML(it, sc, withThumbs) {
-    const fv = unitOf(it);
-    const d = it.isNew ? 'new' : (it.b != null && it.a != null) ? dirOf(it.b, it.a) : 'none';
+    const d =it.isNew ? 'new' : (it.b != null && it.a != null) ? dirOf(it.b, it.a) : 'none';
     let tr = cfg.scale === 'row'
       ? '<i class="rail"></i>'
       : sc.ticks.map(v => `<i class="tk" style="left:${pos(sc, v)}%"></i>`).join('');
@@ -1430,19 +1517,32 @@ function changeList(cfg) {
     } else {
       tr += `<span class="cl-na">${cfg.naText ? t(cfg.naText) : ''}</span>`;
     }
-    let vals;
-    if (it.isNew) vals = `<b>${fv(it.a)}</b>`;
-    else if (it.b != null && it.a != null) vals = `<s>${fv(it.b)}${it.inf ? '*' : ''}</s><span class="to"> → </span><b>${fv(it.a)}</b>`;
-    else vals = '<s>—</s>';
     const name = tx(it.n);
     const sub = cfg.subFn ? cfg.subFn(it) : tx(it.sub);
     const stem = imgKey(it);
     const nameHTML = `${name}${sub ? `<span class="cl-sub">${sub}</span>` : ''}`;
     const inner = withThumbs ? `<span class="nm">${thumb(stem)}<span class="nm-t">${nameHTML}</span></span>` : nameHTML;
-    return `<div class="cl-row"><div class="cl-name"${pvAttrs(stem, name)}>${inner}</div>` +
+    return `<div class="cl-row" data-id="${it._id}"><div class="cl-name"${pvAttrs(stem, name)}>${inner}</div>` +
            `<div class="cl-track" aria-hidden="true">${tr}</div>` +
-           `<div class="cl-vals">${vals}</div><div class="cl-delta">${deltaHTML(it)}</div></div>`;
+           `<div class="cl-vals">${valsHTML(it) || '<s>—</s>'}</div><div class="cl-delta">${deltaHTML(it)}</div></div>`;
   }
+
+  function valsHTML(it) {
+    const fv = unitOf(it);
+    if (it.isNew) return `<b>${fv(it.a)}</b>`;
+    if (it.b != null && it.a != null) return `<s>${fv(it.b)}${it.inf ? '*' : ''}</s><span class="to"> → </span><b>${fv(it.a)}</b>`;
+    return '';
+  }
+
+  // resumo de uma linha para os resultados da busca
+  cfg.describe = it => {
+    const v = valsHTML(it);
+    return {
+      vals: v ? (cfg.valPrefix ? cfg.valPrefix() : '') + v : '',
+      delta: deltaHTML(it),
+      sub: cfg.subFn ? cfg.subFn(it) : tx(it.sub),
+    };
+  };
 
   function byPct(x, y) {
     if (x.p == null && y.p == null) return 0;
@@ -1459,7 +1559,7 @@ function changeList(cfg) {
         if (it.isNew) return STATE.showNew && cfg.dirFilter === 'all';
         if (cfg.dirFilter === 'all') return true;
         return it.b != null && it.a != null && dirOf(it.b, it.a) === cfg.dirFilter;
-      }).map(it => Object.assign({}, it, {p: pctOf(it.b, it.a)}));
+      }).map(it => Object.assign({}, it, {_id: idOf(it), p: pctOf(it.b, it.a)}));
       if (cfg.sort === 'pct') items.sort(byPct);
       else if (cfg.sort === 'after') items.sort((x, y) => lvlKey(x) - lvlKey(y));
       return {t: tx(g.t), items};
@@ -1496,6 +1596,14 @@ function changeList(cfg) {
   cfg.render = render;
   RENDERERS.push(render);
   render();
+
+  // entra na busca
+  if (cfg.where) {
+    const entries = cfg.indexItems
+      ? cfg.indexItems()
+      : (typeof cfg.groups === 'function' ? cfg.groups() : cfg.groups).flatMap(g => g.items.map(it => ({it, group: g.t})));
+    entries.forEach(e => addToIndex(Object.assign({cfg}, e)));
+  }
 }
 
 /* =================================================================
@@ -1504,27 +1612,29 @@ function changeList(cfg) {
 const one = items => [{items}];
 
 // Combate
-changeList({id: 'cl-calibre', groups: one(CALIBRE), unit: 'num', max: 100, ticks: 4});
-changeList({id: 'cl-armor', groups: one(ARMOR), unit: 'pct', delta: 'pp', max: 100, axisFmt: v => v + '%'});
-changeList({id: 'cl-through', groups: one(THROUGH), unit: 'pct', max: 100, axisFmt: v => v + '%'});
-changeList({id: 'cl-chute', groups: one(CHUTE_PRICE), unit: 'money', axisFmt: compactMoney});
-changeList({id: 'cl-combat-misc', groups: one(COMBAT_MISC), scale: 'row'});
+changeList({id: 'cl-calibre', where: ['nav.combat', 'calibre.h3'], groups: one(CALIBRE), unit: 'num', max: 100, ticks: 4});
+changeList({id: 'cl-armor', where: ['nav.combat', 'armor.h3'], groups: one(ARMOR), unit: 'pct', delta: 'pp', max: 100, axisFmt: v => v + '%'});
+changeList({id: 'cl-through', where: ['nav.combat', 'through.h4'], groups: one(THROUGH), unit: 'pct', max: 100, axisFmt: v => v + '%'});
+changeList({id: 'cl-chute', where: ['nav.combat', 'chute.h3'], groups: one(CHUTE_PRICE), unit: 'money', axisFmt: compactMoney});
+changeList({id: 'cl-combat-misc', where: ['nav.combat', 'cmisc.h3'], groups: one(COMBAT_MISC), scale: 'row'});
 
-function specTable(id, rows) {
+function specTable(id, rows, where) {
   const el = document.getElementById(id);
   const draw = () => {
     el.innerHTML = '<tbody>' + rows.map(r => {
       const stem = imgOf(r.k), name = tx(r.n);
       const label = `${name}${r.s ? `<small>${tx(r.s)}</small>` : ''}`;
-      return `<tr><th><span class="nm"${pvAttrs(stem, name)}>${thumb(stem)}<span class="nm-t">${label}</span></span></th><td>${r.d ? arrow(r.d) : ''}${tx(r.v)}</td></tr>`;
+      return `<tr data-id="${idOf(r)}"><th><span class="nm"${pvAttrs(stem, name)}>${thumb(stem)}<span class="nm-t">${label}</span></span></th><td>${r.d ? arrow(r.d) : ''}${tx(r.v)}</td></tr>`;
     }).join('') + '</tbody>';
   };
   RENDERERS.push(draw);
   draw();
+  const cfg = {where, describe: r => ({vals: `<b>${r.d ? arrow(r.d) : ''}${tx(r.v)}</b>`, delta: '', sub: tx(r.s)})};
+  rows.forEach(it => addToIndex({cfg, it}));
 }
-specTable('spec-combat', SPEC_COMBAT);
-specTable('spec-rewards', SPEC_REWARDS);
-specTable('spec-misc', SPEC_MISC);
+specTable('spec-combat', SPEC_COMBAT, ['nav.combat', 'cmisc.h3']);
+specTable('spec-rewards', SPEC_REWARDS, ['nav.rewards', 'actxp.h3']);
+specTable('spec-misc', SPEC_MISC, ['nav.other', 'rules.h3']);
 
 // mapa de calor calibre × proteção
 function drawHeat() {
@@ -1569,12 +1679,12 @@ RENDERERS.push(drawChute);
 drawChute();
 
 // Construções
-changeList({id: 'cl-build', ctrlId: 'ctrl-build', groups: one(BUILD), unit: 'num', modes: true, mode: 'pct', sort: 'pct'});
-changeList({id: 'cl-drill', groups: one(DRILL), scale: 'row'});
-changeList({id: 'cl-bweap', groups: one(BWEAP), scale: 'row'});
+changeList({id: 'cl-build', where: ['nav.build', 'bcost.h3'], ctrlId: 'ctrl-build', groups: one(BUILD), unit: 'num', modes: true, mode: 'pct', sort: 'pct'});
+changeList({id: 'cl-drill', where: ['nav.build', 'Drill Rig'], groups: one(DRILL), scale: 'row'});
+changeList({id: 'cl-bweap', where: ['nav.build', 'bweap.h3'], groups: one(BWEAP), scale: 'row'});
 
 // Preços
-changeList({id: 'cl-price', ctrlId: 'ctrl-price', groups: PRICES, unit: 'money', modes: true, filterUI: true, mode: 'abs', sort: 'pct', scale: 'group', axisFmt: compactMoney});
+changeList({id: 'cl-price', where: ['nav.prices', 'price.h3'], ctrlId: 'ctrl-price', groups: PRICES, unit: 'money', modes: true, filterUI: true, mode: 'pct', sort: 'pct', scale: 'group', axisFmt: compactMoney});
 function drawPriceSummary() {
   const all = PRICES.flatMap(g => g.items).filter(i => !i.isNew).map(i => Object.assign({p: pctOf(i.b, i.a)}, i));
   const up = all.filter(i => i.a > i.b), down = all.filter(i => i.a < i.b);
@@ -1589,14 +1699,14 @@ RENDERERS.push(drawPriceSummary);
 drawPriceSummary();
 
 // Recompensas
-changeList({id: 'cl-act-cash', groups: one(ACT_CASH), unit: 'money', axisFmt: compactMoney});
-changeList({id: 'cl-act-xp', groups: one(ACT_XP), unit: 'num'});
-changeList({id: 'cl-log-cash', groups: one(LOG_CASH), unit: 'money', axisFmt: compactMoney});
-changeList({id: 'cl-log-xp', groups: one(LOG_XP), unit: 'num'});
-changeList({id: 'cl-veh', ctrlId: 'ctrl-veh', groups: VEH_KILL, unit: 'money', modes: true, axisFmt: compactMoney});
-changeList({id: 'cl-bkill', groups: one(BKILL), unit: 'money', sort: 'pct', axisFmt: compactMoney});
-changeList({id: 'cl-crate', groups: one(CRATE), unit: 'money', axisFmt: compactMoney});
-changeList({id: 'cl-spot', groups: one(SPOT), scale: 'row'});
+changeList({id: 'cl-act-cash', where: ['nav.rewards', 'actcash.h3'], groups: one(ACT_CASH), unit: 'money', axisFmt: compactMoney});
+changeList({id: 'cl-act-xp', where: ['nav.rewards', 'actxp.h3'], groups: one(ACT_XP), unit: 'num'});
+changeList({id: 'cl-log-cash', where: ['nav.rewards', 'log.h3', 'Cash'], groups: one(LOG_CASH), unit: 'money', axisFmt: compactMoney});
+changeList({id: 'cl-log-xp', where: ['nav.rewards', 'log.h3', 'XP'], groups: one(LOG_XP), unit: 'num'});
+changeList({id: 'cl-veh', where: ['nav.rewards', 'veh.h3'], ctrlId: 'ctrl-veh', groups: VEH_KILL, unit: 'money', modes: true, mode: 'pct', axisFmt: compactMoney});
+changeList({id: 'cl-bkill', where: ['nav.rewards', 'bkill.h3'], groups: one(BKILL), unit: 'money', sort: 'pct', axisFmt: compactMoney});
+changeList({id: 'cl-crate', where: ['nav.rewards', 'crate.h3'], groups: one(CRATE), unit: 'money', axisFmt: compactMoney});
+changeList({id: 'cl-spot', where: ['nav.rewards', 'Spotting'], groups: one(SPOT), scale: 'row'});
 
 function drawStreak() {
   const h = t('streak.h'), rows = t('streak.rows');
@@ -1718,34 +1828,38 @@ function progSummary() {
 }
 
 const progCfg = {
-  id: 'cl-prog', unit: 'lvl', delta: 'diff', diffUnit: 'lvlu', sort: 'after',
+  id: 'cl-prog', where: ['nav.prog', 'unlock.h3'], unit: 'lvl', delta: 'diff', diffUnit: 'lvlu', sort: 'after',
   groups: () => [{items: PROG[curTrack].items}],
   max: () => PROG[curTrack].max, ticks: 5,
   axisFmt: v => t('lvlax') + v,
   naText: 'na.lvl',
   subFn: costSub,
+  valPrefix: () => t('lvlax'),
+  indexItems: () => Object.keys(PROG).flatMap(k => PROG[k].items.map(it => ({it, track: k}))),
 };
 changeList(progCfg);
 progSummary();
 RENDERERS.push(progSummary);
-tabsEl.addEventListener('click', e => {
-  const b = e.target.closest('button[data-t]');
-  if (!b) return;
-  curTrack = b.dataset.t;
-  tabsEl.querySelectorAll('button').forEach(x => x.setAttribute('aria-selected', String(x === b)));
+function selectTrack(k) {
+  curTrack = k;
+  tabsEl.querySelectorAll('button').forEach(x => x.setAttribute('aria-selected', String(x.dataset.t === k)));
   progCfg.render();
   progSummary();
+}
+tabsEl.addEventListener('click', e => {
+  const b = e.target.closest('button[data-t]');
+  if (b) selectTrack(b.dataset.t);
 });
 
 // Progressão: custo de desbloqueio
 changeList({
-  id: 'cl-cost', ctrlId: 'ctrl-cost', unit: 'k', modes: true, mode: 'pct', sort: 'pct', scale: 'group', axisFmt: compactMoney,
+  id: 'cl-cost', where: ['nav.prog', 'cost.h3'], ctrlId: 'ctrl-cost', unit: 'k', modes: true, mode: 'pct', sort: 'pct', scale: 'group', axisFmt: compactMoney,
   groups: Object.keys(PROG).map(k => ({t: k, items: PROG[k].items.filter(i => i.cb != null && i.ca != null && !i.isNew).map(i => ({n: i.n, b: i.cb, a: i.ca, from: i.from}))})),
   subFn: it => it.from ? t('from').replace('{x}', it.from) : '',
 });
 
 // Outros
-changeList({id: 'cl-misc', groups: one(MISC), scale: 'row'});
+changeList({id: 'cl-misc', where: ['nav.other', 'omisc.h3'], groups: one(MISC), scale: 'row'});
 
 // miniatura em títulos (ex.: Drill Rig)
 document.querySelectorAll('[data-th]').forEach(h => {
@@ -1775,6 +1889,8 @@ const TOTAL = (function () {
    ================================================================= */
 function applyStatic() {
   document.querySelectorAll('[data-i18n]').forEach(el => { el.innerHTML = t(el.dataset.i18n); });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => { el.placeholder = t(el.dataset.i18nPh); });
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => { el.setAttribute('aria-label', t(el.dataset.i18nAria)); });
   document.getElementById('lede').innerHTML = t('lede').replace('{n}', NF.format(TOTAL));
   document.title = t('doc.title');
   const md = document.querySelector('meta[name="description"]');
@@ -1819,6 +1935,132 @@ toggleNew.addEventListener('change', () => {
     });
   }, {rootMargin: '-45% 0px -50% 0px'});
   document.querySelectorAll('main section[id]').forEach(s => io.observe(s));
+})();
+
+/* =================================================================
+   BUSCA
+   ================================================================= */
+(function search() {
+  const nav = document.querySelector('.nav');
+  const input = document.getElementById('search-in');
+  const res = document.getElementById('search-res');
+  const openBtn = document.getElementById('search-btn');
+  const closeBtn = document.getElementById('search-close');
+  let hits = [], active = -1;
+
+  function find(q) {
+    const tokens = norm(q).split(' ').filter(Boolean);
+    if (!tokens.length) return [];
+    const full = tokens.join(' ');
+    const out = [];
+    SEARCH.forEach(e => {
+      const inName = tokens.every(tk => e.nameHay.includes(tk));
+      const inAll = inName || tokens.every(tk => (e.nameHay + ' ' + e.ctxHay).includes(tk));
+      if (!inAll) return;
+      let rank = 3;
+      if (inName) rank = e.nameHay.startsWith(full) ? 0 : (' ' + e.nameHay).includes(' ' + tokens[0]) ? 1 : 2;
+      out.push({e, rank});
+    });
+    out.sort((a, b) => a.rank - b.rank || a.e.order - b.e.order);
+    // se algum nome de item bateu, ignora os que só bateram pelo título do painel/grupo
+    const named = out.filter(o => o.rank < 3);
+    return (named.length ? named : out).slice(0, 60).map(o => o.e);
+  }
+
+  function ctxOf(e) {
+    const parts = e.cfg.where.map(whereText);
+    if (e.group) parts.push(tx(e.group));
+    if (e.track) parts.push(e.track);
+    return parts.join(' · ');
+  }
+
+  function render() {
+    const q = input.value.trim();
+    if (!q) { close(false); return; }
+    hits = find(q);
+    active = hits.length ? 0 : -1;
+    if (!hits.length) {
+      res.innerHTML = `<div class="sr-empty">${t('search.none').replace('{q}', esc(q))}</div>`;
+    } else {
+      res.innerHTML = `<div class="sr-head">${hits.length === 1 ? t('search.one') : t('search.many').replace('{n}', hits.length)}</div>` +
+        hits.map((e, i) => {
+          const it = e.it, d = e.cfg.describe(it);
+          const sub = [ctxOf(e), d.sub].filter(Boolean).join(' · ');
+          return `<button type="button" class="sr${i === active ? ' on' : ''}" role="option" id="sr-${i}" data-i="${i}" aria-selected="${i === active}">` +
+            `${thumb(imgKey(it))}<span class="sr-m"><span class="sr-n">${tx(it.n)}</span><span class="sr-c">${sub}</span></span>` +
+            `<span class="sr-v">${d.vals}</span><span class="sr-d">${d.delta}</span></button>`;
+        }).join('');
+    }
+    res.hidden = false;
+    input.setAttribute('aria-expanded', 'true');
+  }
+
+  function setActive(i) {
+    if (!hits.length) return;
+    active = (i + hits.length) % hits.length;
+    res.querySelectorAll('.sr').forEach(b => {
+      const on = Number(b.dataset.i) === active;
+      b.classList.toggle('on', on);
+      b.setAttribute('aria-selected', String(on));
+      if (on) b.scrollIntoView({block: 'nearest'});
+    });
+    input.setAttribute('aria-activedescendant', 'sr-' + active);
+  }
+
+  function close(clear) {
+    res.hidden = true;
+    input.setAttribute('aria-expanded', 'false');
+    input.removeAttribute('aria-activedescendant');
+    if (clear) { input.value = ''; nav.classList.remove('searching'); }
+  }
+
+  function go(e) {
+    const it = e.it;
+    close(true);
+    input.blur();
+    if (it.isNew && !STATE.showNew) {
+      toggleNew.checked = true;
+      STATE.showNew = true;
+      RENDERERS.forEach(f => f());
+    }
+    if (e.track && e.track !== curTrack) selectTrack(e.track);
+    let row = document.querySelector(`[data-id="${e.id}"]`);
+    if (!row && e.cfg.resetDir) { e.cfg.resetDir(); row = document.querySelector(`[data-id="${e.id}"]`); }
+    if (!row) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    row.scrollIntoView({block: 'center', behavior: reduce ? 'auto' : 'smooth'});
+    row.classList.remove('flash');
+    void row.offsetWidth;
+    row.classList.add('flash');
+  }
+
+  input.addEventListener('input', render);
+  input.addEventListener('focus', () => { if (input.value.trim()) render(); });
+  input.addEventListener('keydown', ev => {
+    if (ev.key === 'ArrowDown') { ev.preventDefault(); setActive(active + 1); }
+    else if (ev.key === 'ArrowUp') { ev.preventDefault(); setActive(active - 1); }
+    else if (ev.key === 'Enter') { ev.preventDefault(); if (hits[active]) go(hits[active]); }
+    else if (ev.key === 'Escape') { close(true); input.blur(); }
+  });
+  res.addEventListener('click', ev => {
+    const b = ev.target.closest('.sr');
+    if (b) go(hits[Number(b.dataset.i)]);
+  });
+  openBtn.addEventListener('click', () => { nav.classList.add('searching'); input.focus(); });
+  closeBtn.addEventListener('click', () => close(true));
+  document.addEventListener('pointerdown', ev => {
+    if (!res.hidden && !ev.target.closest('.search') && !ev.target.closest('.search-res')) close(false);
+  });
+  // atalho: "/" abre a busca
+  document.addEventListener('keydown', ev => {
+    if (ev.key !== '/' || ev.ctrlKey || ev.metaKey || ev.altKey) return;
+    const tag = (document.activeElement && document.activeElement.tagName) || '';
+    if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+    ev.preventDefault();
+    nav.classList.add('searching');
+    input.focus();
+  });
+  RENDERERS.push(() => { if (!res.hidden) render(); });
 })();
 
 /* =================================================================

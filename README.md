@@ -1,12 +1,31 @@
-# wardogs-patchnotes-ui
+# WARDOGS Season 2, in numbers
 
-Every balance number that changed in the WARDOGS Season 02 patch, before and after side by side.
-Toda mudança numérica de balanceamento do patch da Season 02 de WARDOGS, com antes e depois lado a lado.
+The Season 2 patch notes for WARDOGS are long, and most of the balance changes are buried in lists. This page pulls out every number that changed and shows the old and new values side by side.
 
-**Page / Página:** https://rafarrw.github.io/wardogs-patchnotes-ui/
+**See it here:** https://rafarrw.github.io/wardogs-patchnotes-ui/
 
-- English or Portuguese, picked from the browser language (English when it is neither). Switch with the PT / EN buttons or `?lang=pt` / `?lang=en`.
-- Data: [official Season 02 patch notes on Steam](https://store.steampowered.com/news/app/1867240/view/670630562731396445).
-- Item images: [Dexerto WARDOGS wiki](https://www.dexerto.com/wikis/wardogs/), resized by [wsrv.nl](https://wsrv.nl/).
+Em português: a página mostra todos os números que mudaram no patch da Season 2, com o antes e o depois lado a lado. Ela abre no idioma do seu navegador, e dá para trocar no menu.
 
-Single `index.html`, no build step. Unofficial fan-made page, not affiliated with the game's developers.
+## What's on the page
+
+- Damage, armor, building costs, vendor prices, rewards, XP and unlock levels
+- A search box. Type "humvee" and you get every change related to it.
+- Item pictures, so you're not guessing what a "Ballista Brake" is
+- English and Portuguese
+
+## Where the data comes from
+
+- Numbers: the [official Season 2 patch notes](https://store.steampowered.com/news/app/1867240/view/670630562731396445) on Steam. If a change didn't come with an exact number, it's not on the page.
+- Pictures: the [Dexerto WARDOGS wiki](https://www.dexerto.com/wikis/wardogs/), resized through [wsrv.nl](https://wsrv.nl/). Items that are new in Season 2 don't have pictures there yet.
+
+## Running it yourself
+
+Everything is in `index.html`. There's no build step. Open the file in a browser, or serve the folder with any static server.
+
+## Spotted a mistake?
+
+Open an issue or send a pull request. See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+---
+
+Fan-made. Not affiliated with the developers of WARDOGS.
