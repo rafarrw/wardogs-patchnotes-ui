@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://wsrv.nl" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..700&family=Saira:wdth,wght@100..125,500..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Saira:wdth,wght@100..125,400..900&display=swap" rel="stylesheet">
 <script>
   /* idioma: ?lang= → escolha salva → idioma do sistema (pt ou en) → inglês */
   (function () {
@@ -40,7 +40,7 @@
   --ok:#7c9a52; --warn:#d9a032; --bad:#c9483b;
   --thumb:#23211c;
   --display:'Saira','Arial Narrow',sans-serif;
-  --text:'Archivo',Arial,sans-serif;
+  --text:'Saira',Arial,sans-serif;
 }
 *{box-sizing:border-box}
 html{background:var(--page);scroll-behavior:smooth}
@@ -74,16 +74,14 @@ a:hover{color:var(--mustard)}
 .nav .wrap{display:flex;align-items:stretch;gap:16px;height:52px}
 .nav-links{display:flex;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
 .nav-links::-webkit-scrollbar{display:none}
-.nav-links a{display:flex;align-items:center;padding:0 12px;color:var(--ink-2);text-decoration:none;font-family:var(--display);font-weight:600;font-stretch:110%;text-transform:uppercase;letter-spacing:.06em;font-size:14px;white-space:nowrap}
+.nav-links a{display:flex;align-items:center;padding:0 12px;color:var(--ink-2);text-decoration:none;font-family:var(--display);font-weight:600;font-stretch:110%;text-transform:uppercase;letter-spacing:.1em;font-size:14px;white-space:nowrap}
 .nav-links a:first-child{padding-left:0}
 .nav-links a:hover{color:var(--ink)}
 .nav-links a.on{color:var(--ink);box-shadow:inset 0 -3px 0 var(--mustard)}
 .nav-tools{display:flex;align-items:center;gap:16px;flex:none}
-.chk{display:inline-flex;align-items:center;gap:9px;cursor:pointer;font-family:var(--display);font-weight:600;font-stretch:110%;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2);white-space:nowrap;flex:none}
+.chk{display:inline-flex;align-items:center;gap:9px;cursor:pointer;font-family:var(--display);font-weight:600;font-stretch:110%;font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-2);white-space:nowrap;flex:none}
 .chk input{appearance:none;-webkit-appearance:none;width:17px;height:17px;margin:0;border:1.5px solid var(--ink-2);display:grid;place-content:center;cursor:pointer;background:transparent}
-.chk input::after{content:"";width:9px;height:9px;background:var(--on-mustard);transform:scale(0)}
 .chk input:checked{background:var(--mustard);border-color:var(--mustard)}
-.chk input:checked::after{transform:scale(1)}
 .chk:hover{color:var(--ink)}
 .lang button{padding:6px 9px}
 @media (max-width:600px){.chk .long{display:none}.nav-tools{gap:10px}}
@@ -163,7 +161,7 @@ a:hover{color:var(--mustard)}
 .ctrls{display:flex;flex-wrap:wrap;gap:10px}
 
 .segc{display:inline-flex;border:1px solid var(--axis)}
-.segc button{background:transparent;border:0;border-right:1px solid var(--axis);color:var(--ink-2);font-family:var(--display);font-weight:600;font-stretch:108%;font-size:13px;text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;cursor:pointer;line-height:1}
+.segc button{background:transparent;border:0;border-right:1px solid var(--axis);color:var(--ink-2);font-family:var(--display);font-weight:600;font-stretch:108%;font-size:13px;text-transform:uppercase;letter-spacing:.09em;padding:8px 12px;cursor:pointer;line-height:1}
 .segc button:last-child{border-right:0}
 .segc button:hover{color:var(--ink);background:var(--hover)}
 .segc button[aria-pressed="true"]{background:var(--mustard);color:var(--on-mustard)}
@@ -187,6 +185,8 @@ h3 .th{width:60px;height:40px}
 .cl-row:hover{background:var(--hover)}
 .cl-name{grid-area:name;font-size:14.5px;line-height:1.3;min-width:0;overflow-wrap:anywhere}
 .cl-sub{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
+.wpn{color:var(--ink-2);border-bottom:1px dotted var(--muted)}
+.wpn:hover{color:var(--ink);border-bottom-color:var(--mustard)}
 .cl-track{grid-area:track;position:relative;height:22px}
 .cl-vals{grid-area:vals;text-align:right;font-variant-numeric:tabular-nums;font-size:14.5px;white-space:nowrap}
 .cl-vals s{text-decoration:none;color:var(--muted)}
@@ -195,7 +195,7 @@ h3 .th{width:60px;height:40px}
 .cl-delta{grid-area:delta;text-align:right;font-size:14px;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--ink-2)}
 .ar{font-style:normal;font-size:10px;vertical-align:1px;margin-right:3px}
 .ar.inc{color:var(--inc)} .ar.dec{color:var(--dec)}
-.isnew{font-family:var(--display);font-weight:700;font-stretch:110%;font-size:12px;letter-spacing:.1em;color:var(--ink)}
+.isnew{font-family:var(--display);font-weight:700;font-stretch:110%;font-size:12px;letter-spacing:.14em;color:var(--ink)}
 .tk{position:absolute;top:0;bottom:0;width:1px;background:var(--grid)}
 .rail{position:absolute;left:0;right:0;top:50%;height:1px;background:var(--grid)}
 .zero{position:absolute;top:-4px;bottom:-4px;width:1px;background:var(--axis)}
@@ -216,7 +216,7 @@ h3 .th{width:60px;height:40px}
 .ax.first{transform:none}.ax.last{transform:translateX(-100%)}
 .cl-group{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin:22px 0 2px;padding-bottom:6px;border-bottom:1px solid var(--line)}
 .cl-group:first-child{margin-top:4px}
-.cl-group .t{font-family:var(--display);font-weight:700;font-stretch:110%;font-size:15px;text-transform:uppercase;letter-spacing:.05em}
+.cl-group .t{font-family:var(--display);font-weight:700;font-stretch:110%;font-size:15px;text-transform:uppercase;letter-spacing:.09em}
 .cl-group .n{color:var(--muted);font-size:13px}
 .empty{color:var(--muted);font-size:14px;padding:12px 0}
 .panel h3 + .cl{margin-top:14px}
@@ -241,7 +241,7 @@ h3 .th{width:60px;height:40px}
 
 /* ---------- tabela simples ---------- */
 .tbl{width:100%;border-collapse:collapse;font-size:14.5px;font-variant-numeric:tabular-nums}
-.tbl th{font-family:var(--display);font-weight:600;font-stretch:108%;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2);text-align:right;padding:8px 0 8px 12px;border-bottom:1px solid var(--axis)}
+.tbl th{font-family:var(--display);font-weight:600;font-stretch:108%;font-size:13px;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-2);text-align:right;padding:8px 0 8px 12px;border-bottom:1px solid var(--axis)}
 .tbl th:first-child,.tbl td:first-child{text-align:left;padding-left:0}
 .tbl td{text-align:right;padding:9px 0 9px 12px;border-bottom:1px solid var(--line)}
 .tbl tr:last-child td{border-bottom:0}
@@ -249,7 +249,7 @@ h3 .th{width:60px;height:40px}
 
 /* ---------- mapa de calor ---------- */
 .heat{width:100%;border-collapse:separate;border-spacing:3px;font-variant-numeric:tabular-nums;min-width:440px}
-.heat th{font-family:var(--display);font-weight:600;font-stretch:108%;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2);padding:6px 8px;text-align:center}
+.heat th{font-family:var(--display);font-weight:600;font-stretch:108%;font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);padding:6px 8px;text-align:center}
 .heat tbody th{text-align:left;text-transform:none;letter-spacing:0;font-family:var(--text);font-size:14px;font-weight:500;color:var(--ink);white-space:nowrap}
 .heat td{padding:12px 6px;text-align:center;background:var(--mid)}
 .heat .v{display:block;font-size:17px;font-weight:700;color:var(--ink)}
@@ -278,7 +278,7 @@ h3 .th{width:60px;height:40px}
 .xp .endl{fill:var(--ink-2);font-size:12.5px;font-family:var(--text);font-weight:600}
 .xp .cross{stroke:var(--axis);stroke-width:1}
 .tt{position:absolute;pointer-events:none;background:var(--page);border:1px solid var(--axis);padding:8px 11px;font-size:13px;line-height:1.5;min-width:160px;font-variant-numeric:tabular-nums}
-.tt .h{font-family:var(--display);font-weight:700;font-stretch:110%;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+.tt .h{font-family:var(--display);font-weight:700;font-stretch:110%;text-transform:uppercase;letter-spacing:.09em;margin-bottom:2px}
 .tt .r{display:flex;align-items:center;gap:7px}
 .tt .r b{margin-left:auto;font-weight:600}
 .tt .mk{width:9px;height:9px}
@@ -299,7 +299,7 @@ h3 .th{width:60px;height:40px}
 /* ---------- trilhas ---------- */
 .tabs{display:flex;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--line);margin:14px 0 0}
 .tabs::-webkit-scrollbar{display:none}
-.tabs button{background:transparent;border:0;color:var(--ink-2);font-family:var(--display);font-weight:600;font-stretch:110%;text-transform:uppercase;letter-spacing:.06em;font-size:14px;padding:10px 14px;cursor:pointer;white-space:nowrap}
+.tabs button{background:transparent;border:0;color:var(--ink-2);font-family:var(--display);font-weight:600;font-stretch:110%;text-transform:uppercase;letter-spacing:.1em;font-size:14px;padding:10px 14px;cursor:pointer;white-space:nowrap}
 .tabs button:first-child{padding-left:0}
 .tabs button:hover{color:var(--ink)}
 .tabs button[aria-selected="true"]{color:var(--ink);box-shadow:inset 0 -3px 0 var(--mustard)}
@@ -558,6 +558,7 @@ footer a{color:var(--ink-2)}
   <div class="wrap">
     <p data-i18n="foot1"></p>
     <p data-i18n="foot2"></p>
+    <p data-i18n="foot.gh"></p>
     <p data-i18n="foot3"></p>
   </div>
 </footer>
@@ -572,13 +573,14 @@ footer a{color:var(--ink-2)}
    TEXTOS (pt / en)
    ================================================================= */
 const SRC = 'https://store.steampowered.com/news/app/1867240/view/670630562731396445';
+const REPO = 'https://github.com/rafarrw/wardogs-patchnotes-ui';
 const I18N = {
   pt: {
     'doc.title': 'WARDOGS Season 02 em números',
     'doc.desc': 'Todas as mudanças numéricas de balanceamento do patch da Season 02 de WARDOGS, com antes e depois lado a lado.',
     'h1': 'Balanceamento em números',
     'lede': 'Cada valor que mudou no patch da Season 2, com o antes (Season 1) e o depois lado a lado. São <b>{n}</b> números alterados. Mudança sem número exato ficou de fora.',
-    'src': `Fonte: <a href="${SRC}" rel="noopener">WARDOGS | Season 02 Patch Notes</a>, Steam, 14/10/2026. Página não oficial, feita por fã.`,
+    'src': `Fonte: <a href="${SRC}" rel="noopener">WARDOGS | Season 02 Patch Notes</a>, Steam, 14/10/2026. Página não oficial, feita por fã. <a href="${REPO}" rel="noopener">Código no GitHub</a>.`,
     'nav.combat': 'Combate', 'nav.build': 'Construções', 'nav.prices': 'Preços', 'nav.rewards': 'Recompensas', 'nav.prog': 'Progressão', 'nav.other': 'Outros',
     'toggle.new': '<span class="long">Mostrar </span>itens novos',
     'lg.dec': 'diminuiu na Season 2', 'lg.inc': 'aumentou na Season 2',
@@ -586,7 +588,8 @@ const I18N = {
     'lg.fine': 'A cor mostra só para onde o número foi. Ela não diz se aquilo é buff ou nerf: preço subindo é ruim para você, recompensa subindo é bom. Passe o mouse no nome de um item para ver a imagem dele.',
     'combat.d': 'Calibres pesados perderam dano base e as armaduras de nível 3 e 4 seguram menos. Os dois cortes se somam de jeitos diferentes dependendo da arma.',
     'calibre.h3': 'Dano base por calibre',
-    'calibre.pd': 'Vale para toda arma que usa esses cartuchos, inclusive as de veículo (miniguns do Little Bird AH-6M, Z20 Lakota e Humvee). Índice: S1 = 100.',
+    'calibre.pd': 'Vale para toda arma que usa esses cartuchos, inclusive as de veículo (miniguns do Little Bird AH-6M, Z20 Lakota e Humvee). Índice: S1 = 100. As armas de cada calibre vêm da wiki da Dexerto; as novas da Season 2, do patch.',
+    'cal.w': 'Armas:', 'cal.new1': 'nova na S2:', 'cal.newN': 'novas na S2:',
     'armor.h3': 'Armadura e capacete', 'armor.pd': 'Quanto do dano a proteção absorve.',
     'through.h4': 'Dano que passa pela proteção',
     'heat.h3': 'Dano por acerto: S2 comparado com S1',
@@ -623,6 +626,7 @@ const I18N = {
     'foot1': 'Dados tirados do patch notes oficial da Season 02 de WARDOGS publicado na Steam em 14/10/2026. Valores com “~” estão como aproximados no próprio patch.',
     'foot2': 'Imagens dos itens: <a href="https://www.dexerto.com/wikis/wardogs/" rel="noopener">wiki de WARDOGS da Dexerto</a>, redimensionadas pelo <a href="https://wsrv.nl/" rel="noopener">wsrv.nl</a>. Os itens novos da Season 2 ainda não têm imagem lá.',
     'foot3': 'Página não oficial, feita por fã, sem vínculo com os desenvolvedores do jogo.',
+    'foot.gh': `Achou um número errado ou quer ajudar? O código está no <a href="${REPO}" rel="noopener">GitHub</a>: abra uma issue ou mande um pull request.`,
     'ctl.abs': 'Valor', 'ctl.pct': 'Variação %', 'ctl.all': 'Todos', 'ctl.inc': 'Subiu', 'ctl.dec': 'Caiu',
     'search.ph': 'Buscar item (ex.: Humvee)', 'search.open': 'Buscar item', 'search.close': 'Fechar busca',
     'search.none': 'Nada encontrado para “{q}”.', 'search.one': '1 resultado', 'search.many': '{n} resultados',
@@ -646,7 +650,7 @@ const I18N = {
     'doc.desc': 'Every balance number that changed in the WARDOGS Season 02 patch, before and after side by side.',
     'h1': 'Balance changes in numbers',
     'lede': 'Every value that changed in the Season 2 patch, with before (Season 1) and after side by side. That is <b>{n}</b> changed numbers. Changes without an exact number were left out.',
-    'src': `Source: <a href="${SRC}" rel="noopener">WARDOGS | Season 02 Patch Notes</a>, Steam, Oct 14, 2026. Unofficial fan-made page.`,
+    'src': `Source: <a href="${SRC}" rel="noopener">WARDOGS | Season 02 Patch Notes</a>, Steam, Oct 14, 2026. Unofficial fan-made page. <a href="${REPO}" rel="noopener">Code on GitHub</a>.`,
     'nav.combat': 'Combat', 'nav.build': 'Building', 'nav.prices': 'Prices', 'nav.rewards': 'Rewards', 'nav.prog': 'Progression', 'nav.other': 'Other',
     'toggle.new': '<span class="long">Show </span>new items',
     'lg.dec': 'went down in Season 2', 'lg.inc': 'went up in Season 2',
@@ -654,7 +658,8 @@ const I18N = {
     'lg.fine': 'Color only shows which way the number moved. It does not say buff or nerf: a higher price is bad for you, a higher reward is good. Hover an item name to see its picture.',
     'combat.d': 'Heavy calibres lost base damage and level 3 and 4 armor absorbs less. The two cuts stack differently depending on the weapon.',
     'calibre.h3': 'Base damage by calibre',
-    'calibre.pd': 'Applies to every weapon that fires these rounds, vehicle weapons included (Little Bird AH-6M, Z20 Lakota and Humvee miniguns). Index: S1 = 100.',
+    'calibre.pd': 'Applies to every weapon that fires these rounds, vehicle weapons included (Little Bird AH-6M, Z20 Lakota and Humvee miniguns). Index: S1 = 100. The weapons for each calibre come from the Dexerto wiki; the new Season 2 ones from the patch.',
+    'cal.w': 'Weapons:', 'cal.new1': 'new in S2:', 'cal.newN': 'new in S2:',
     'armor.h3': 'Armor and helmets', 'armor.pd': 'How much damage the protection absorbs.',
     'through.h4': 'Damage that gets through',
     'heat.h3': 'Damage per hit: S2 vs S1',
@@ -691,6 +696,7 @@ const I18N = {
     'foot1': 'Data from the official WARDOGS Season 02 patch notes posted on Steam on Oct 14, 2026. Values marked “~” are given as approximate in the patch itself.',
     'foot2': 'Item images: <a href="https://www.dexerto.com/wikis/wardogs/" rel="noopener">Dexerto WARDOGS wiki</a>, resized by <a href="https://wsrv.nl/" rel="noopener">wsrv.nl</a>. New Season 2 items have no image there yet.',
     'foot3': 'Unofficial fan-made page, not affiliated with the game’s developers.',
+    'foot.gh': `Spotted a wrong number or want to help? The code is on <a href="${REPO}" rel="noopener">GitHub</a>: open an issue or send a pull request.`,
     'ctl.abs': 'Value', 'ctl.pct': 'Change %', 'ctl.all': 'All', 'ctl.inc': 'Up', 'ctl.dec': 'Down',
     'search.ph': 'Search an item (e.g. Humvee)', 'search.open': 'Search an item', 'search.close': 'Close search',
     'search.none': 'Nothing found for “{q}”.', 'search.one': '1 result', 'search.many': '{n} results',
@@ -879,6 +885,9 @@ const IMG = {"T-21":"weapons-t-21",
   "Bobcat":"vehicles-bobcat",
   "Dune Buggy":"vehicles-dune-buggy",
   "Flakpanzer Gepard":"vehicles-flakpanzer-gepard",
+  "SVD":"weapons-svd",
+  "Mosin-Nagant":"weapons-mosin-nagant",
+  "SKS":"weapons-sks",
   "12g Rifled Slug":"ammunition-12g-rifledslug",
   "7.62x39mm Armor Piercing (AP)":"ammunition-762mm-armorpiercing",
   ".308 Win Flesh Damage (HP)":"ammunition-308win-hollowpoint",
@@ -906,11 +915,12 @@ const pvAttrs = (stem, label) => stem ? ` data-pv="${stem}" data-pvl="${esc(labe
 /* =================================================================
    DADOS (copiados do patch notes; b = Season 1, a = Season 2)
    ================================================================= */
+/* w = armas da S1 que usam o calibre (wiki Dexerto); wNew = armas novas da S2 (patch) */
 const CALIBRE = [
-  {n: '.308 Winchester', b: 100, a: 75},
-  {n: '7.62x54mmR', b: 100, a: 80},
-  {n: '7.62x39mm', b: 100, a: 81},
-  {n: '.50 Cal', b: 100, a: 84},
+  {n: '.308 Winchester', b: 100, a: 75, w: ['FAL', 'BMR-308', 'MK22'], wNew: ['M14', 'Evo-3 Ultra']},
+  {n: '7.62x54mmR', b: 100, a: 80, w: ['PKM', 'SVD', 'Mosin-Nagant', 'SV98']},
+  {n: '7.62x39mm', b: 100, a: 81, w: ['SKS'], wNew: ['TCX-SPR']},
+  {n: '.50 Cal', b: 100, a: 84, w: ['AMR 50']},
 ];
 const ARMOR = [
   {n: L('Nível 3', 'Level 3'), k: 'Level 3 Armor', b: 55, a: 50},
@@ -1417,7 +1427,7 @@ function addToIndex(e) {
   const it = e.it;
   idOf(it);
   e.id = it._id;
-  e.nameHay = norm([...both(it.n), ...both(it.k)].join(' '));
+  e.nameHay = norm([...both(it.n), ...both(it.k), ...(it.w || []), ...(it.wNew || [])].join(' '));
   e.ctxHay = norm([...both(e.group), e.track || '', ...e.cfg.where.map(w => (I18N.en[w] !== undefined ? [I18N.pt[w], I18N.en[w]] : both(w)).join(' '))].join(' '));
   e.order = SEARCH.length;
   SEARCH.push(e);
@@ -1612,7 +1622,13 @@ function changeList(cfg) {
 const one = items => [{items}];
 
 // Combate
-changeList({id: 'cl-calibre', where: ['nav.combat', 'calibre.h3'], groups: one(CALIBRE), unit: 'num', max: 100, ticks: 4});
+function weaponsSub(it) {
+  const link = n => { const s = imgOf(n); return s ? `<span class="wpn"${pvAttrs(s, n)}>${n}</span>` : n; };
+  let s = `${t('cal.w')} ${it.w.map(link).join(', ')}`;
+  if (it.wNew) s += ` · ${it.wNew.length === 1 ? t('cal.new1') : t('cal.newN')} ${it.wNew.join(', ')}`;
+  return s;
+}
+changeList({id: 'cl-calibre', where: ['nav.combat', 'calibre.h3'], groups: one(CALIBRE), unit: 'num', max: 100, ticks: 4, subFn: weaponsSub});
 changeList({id: 'cl-armor', where: ['nav.combat', 'armor.h3'], groups: one(ARMOR), unit: 'pct', delta: 'pp', max: 100, axisFmt: v => v + '%'});
 changeList({id: 'cl-through', where: ['nav.combat', 'through.h4'], groups: one(THROUGH), unit: 'pct', max: 100, axisFmt: v => v + '%'});
 changeList({id: 'cl-chute', where: ['nav.combat', 'chute.h3'], groups: one(CHUTE_PRICE), unit: 'money', axisFmt: compactMoney});
@@ -2068,8 +2084,10 @@ toggleNew.addEventListener('change', () => {
    ================================================================= */
 (function preview() {
   const pv = document.getElementById('pv');
-  const img = pv.querySelector('img'), lab = pv.querySelector('.pv-l');
+  const lab = pv.querySelector('.pv-l');
+  let img = pv.querySelector('img');
   let cur = null, lastX = 0, lastY = 0;
+  const ready = new Set(); // imagens grandes já baixadas
   const GAP = 18;
 
   function place(x, y) {
@@ -2086,17 +2104,30 @@ toggleNew.addEventListener('change', () => {
     const stem = el.getAttribute('data-pv');
     if (cur !== el) {
       cur = el;
-      img.removeAttribute('data-fb');
-      img.setAttribute('data-orig', imgOrig(stem));
-      img.src = imgURL(stem, 560);
+      // troca o <img> inteiro: o navegador manteria a imagem anterior na tela até a nova carregar
+      const big = imgURL(stem, 560);
+      const fresh = document.createElement('img');
+      fresh.alt = '';
+      fresh.dataset.orig = imgOrig(stem);
+      // a altura muda quando a imagem chega; reposiciona para não sair da tela
+      fresh.addEventListener('load', () => { if (cur === el) place(lastX, lastY); });
+      if (ready.has(big)) {
+        fresh.src = big;
+      } else {
+        // mostra já a miniatura (está no cache) e troca pela grande quando ela chegar
+        fresh.src = imgURL(stem, 112);
+        const pre = new Image();
+        pre.onload = () => { ready.add(big); if (cur === el && img === fresh) fresh.src = big; };
+        pre.src = big;
+      }
+      img.replaceWith(fresh);
+      img = fresh;
       lab.textContent = el.getAttribute('data-pvl') || '';
     }
     pv.hidden = false;
     place(x, y);
   }
   function hide() { pv.hidden = true; cur = null; }
-  // a altura muda quando a imagem chega; reposiciona para não sair da tela
-  img.addEventListener('load', () => { if (cur) place(lastX, lastY); });
 
   document.addEventListener('pointerover', e => {
     if (e.pointerType === 'touch') return;
