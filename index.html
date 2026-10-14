@@ -1,0 +1,1894 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WARDOGS Season 02 in numbers</title>
+<meta name="description" content="Every balance number that changed in the WARDOGS Season 02 patch, before and after side by side.">
+<meta property="og:title" content="WARDOGS Season 02 — balance changes in numbers">
+<meta property="og:description" content="Damage, armor, prices, rewards, XP and unlocks: every number that changed in the Season 2 patch. Available in English and Portuguese.">
+<meta name="theme-color" content="#131210">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://wsrv.nl" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..700&family=Saira:wdth,wght@100..125,500..900&display=swap" rel="stylesheet">
+<script>
+  /* idioma: ?lang= → escolha salva → idioma do sistema (pt ou en) → inglês */
+  (function () {
+    var lang = null;
+    try { var q = new URLSearchParams(location.search).get('lang'); if (q === 'pt' || q === 'en') lang = q; } catch (e) {}
+    if (!lang) { try { var s = localStorage.getItem('wd-lang'); if (s === 'pt' || s === 'en') lang = s; } catch (e) {} }
+    if (!lang) {
+      var list = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || ''];
+      for (var i = 0; i < list.length; i++) {
+        var l = String(list[i]).toLowerCase();
+        if (l.indexOf('pt') === 0) { lang = 'pt'; break; }
+        if (l.indexOf('en') === 0) { lang = 'en'; break; }
+      }
+    }
+    window.WD_LANG = lang || 'en';
+    document.documentElement.lang = window.WD_LANG === 'pt' ? 'pt-BR' : 'en';
+  })();
+</script>
+<style>
+:root{
+  color-scheme: dark;
+  --page:#131210; --panel:#1a1916; --hover:#22201c; --line:#2d2a25; --grid:#2a2823; --axis:#403c34;
+  --ink:#ede9df; --ink-2:#bfb9ac; --muted:#918b7e;
+  --mustard:#e0ab2c; --on-mustard:#17150f;
+  --dec:#3f88d8; --inc:#d65a2a; --before:#78746a; --mid:#2b2925;
+  --ok:#7c9a52; --warn:#d9a032; --bad:#c9483b;
+  --thumb:#23211c;
+  --display:'Saira','Arial Narrow',sans-serif;
+  --text:'Archivo',Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{background:var(--page);scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--page);color:var(--ink);font-family:var(--text);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration-color:var(--mustard);text-underline-offset:3px}
+a:hover{color:var(--mustard)}
+:focus-visible{outline:2px solid var(--mustard);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+@media (max-width:600px){.wrap{padding:0 16px}}
+
+/* ---------- topo ---------- */
+.hero{
+  background-color:#171613;
+  background-image:
+    repeating-linear-gradient(101deg,rgba(237,233,223,.045) 0 1px,transparent 1px 11px),
+    repeating-linear-gradient(97deg,rgba(237,233,223,.022) 0 1px,transparent 1px 5px);
+  border-bottom:4px solid var(--mustard);
+  padding:68px 0 46px;
+}
+.brand{display:inline-flex;flex-direction:column;align-items:flex-end;max-width:100%}
+.wordmark{font-family:var(--display);font-weight:900;font-stretch:125%;font-size:clamp(50px,12.5vw,152px);line-height:.8;letter-spacing:-.012em;text-transform:uppercase}
+.season{margin-top:14px;background:var(--mustard);color:var(--on-mustard);font-family:var(--display);font-weight:700;font-stretch:110%;letter-spacing:.24em;font-size:clamp(14px,2.1vw,22px);line-height:1;padding:8px 8px 8px 16px;text-transform:uppercase}
+.hero h1{font-family:var(--display);font-weight:800;font-stretch:112%;font-size:clamp(26px,4vw,40px);line-height:1.05;margin:40px 0 14px;text-transform:uppercase}
+.lede{font-size:18px;color:var(--ink-2);max-width:60ch;margin:0}
+.lede b{color:var(--ink);font-weight:600}
+.src{font-size:14px;color:var(--muted);margin:16px 0 0;max-width:72ch}
+
+/* ---------- navegação ---------- */
+.nav{position:sticky;top:0;z-index:30;background:var(--page);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:stretch;gap:16px;height:52px}
+.nav-links{display:flex;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{display:flex;align-items:center;padding:0 12px;color:var(--ink-2);text-decoration:none;font-family:var(--display);font-weight:600;font-stretch:110%;text-transform:uppercase;letter-spacing:.06em;font-size:14px;white-space:nowrap}
+.nav-links a:first-child{padding-left:0}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a.on{color:var(--ink);box-shadow:inset 0 -3px 0 var(--mustard)}
+.nav-tools{display:flex;align-items:center;gap:16px;flex:none}
+.chk{display:inline-flex;align-items:center;gap:9px;cursor:pointer;font-family:var(--display);font-weight:600;font-stretch:110%;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2);white-space:nowrap;flex:none}
+.chk input{appearance:none;-webkit-appearance:none;width:17px;height:17px;margin:0;border:1.5px solid var(--ink-2);display:grid;place-content:center;cursor:pointer;background:transparent}
+.chk input::after{content:"";width:9px;height:9px;background:var(--on-mustard);transform:scale(0)}
+.chk input:checked{background:var(--mustard);border-color:var(--mustard)}
+.chk input:checked::after{transform:scale(1)}
+.chk:hover{color:var(--ink)}
+.lang button{padding:6px 9px}
+@media (max-width:600px){.chk .long{display:none}.nav-tools{gap:10px}}
+
+/* ---------- legenda ---------- */
+.howto{display:flex;flex-wrap:wrap;gap:6px 24px;align-items:center;padding:22px 0 0;color:var(--ink-2);font-size:14px}
+.howto .k{display:inline-flex;align-items:center;gap:8px}
+.howto .fine{flex-basis:100%;color:var(--muted);font-size:13px}
+.mk{width:11px;height:11px;border-radius:50%;display:inline-block;flex:none}
+.mk.before{background:var(--before)}
+.mk.dec{background:var(--dec)}
+.mk.inc{background:var(--inc)}
+.mk.new{border-radius:0;transform:rotate(45deg);width:9px;height:9px;border:2px solid var(--ink);background:transparent}
+
+/* ---------- seções ---------- */
+.sec{padding:60px 0 6px;scroll-margin-top:52px}
+.sec h2{display:flex;align-items:center;gap:18px;font-family:var(--display);font-weight:900;font-stretch:125%;text-transform:uppercase;font-size:clamp(28px,5vw,46px);line-height:1;margin:0 0 12px}
+.sec h2::after{content:"";flex:1;height:1px;background:var(--line);min-width:24px}
+.sec-d{color:var(--ink-2);max-width:66ch;margin:0 0 28px;font-size:17px}
+.cols{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:20px}
+.s12{grid-column:span 12}.s8{grid-column:span 8}.s7{grid-column:span 7}.s6{grid-column:span 6}.s5{grid-column:span 5}.s4{grid-column:span 4}
+@media (max-width:920px){.cols>*{grid-column:span 12}}
+.panel{background:var(--panel);border:1px solid var(--line);padding:20px 22px 16px;min-width:0}
+@media (max-width:600px){.panel{padding:16px 14px 12px}}
+.ph{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:12px 20px}
+.panel h3{font-family:var(--display);font-weight:700;font-stretch:112%;font-size:21px;line-height:1.15;margin:0}
+.panel h3.with-th{display:flex;align-items:center;gap:12px}
+.panel h4{font-family:var(--display);font-weight:700;font-stretch:108%;font-size:16px;margin:24px 0 4px;color:var(--ink)}
+.pd{color:var(--ink-2);font-size:15px;margin:8px 0 14px;max-width:72ch}
+.note{color:var(--muted);font-size:13px;margin:14px 0 0;max-width:84ch}
+.ctrls{display:flex;flex-wrap:wrap;gap:10px}
+
+.segc{display:inline-flex;border:1px solid var(--axis)}
+.segc button{background:transparent;border:0;border-right:1px solid var(--axis);color:var(--ink-2);font-family:var(--display);font-weight:600;font-stretch:108%;font-size:13px;text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;cursor:pointer;line-height:1}
+.segc button:last-child{border-right:0}
+.segc button:hover{color:var(--ink);background:var(--hover)}
+.segc button[aria-pressed="true"]{background:var(--mustard);color:var(--on-mustard)}
+
+/* ---------- miniaturas e preview ---------- */
+.nm{display:flex;align-items:center;gap:10px;min-width:0}
+.nm-t{min-width:0}
+.th{width:56px;height:34px;flex:none;object-fit:contain;padding:2px;background:var(--thumb);display:block}
+.th-empty{background:transparent}
+h3 .th{width:60px;height:40px}
+[data-pv]{cursor:zoom-in}
+.pv{position:fixed;left:0;top:0;z-index:60;width:302px;background:#1d1b18;border:1px solid var(--axis);padding:10px 10px 9px;pointer-events:none;will-change:transform}
+.pv[hidden]{display:none}
+.pv img{display:block;width:280px;height:auto;min-height:60px;max-height:220px;object-fit:contain;background:var(--thumb)}
+.pv-l{display:block;margin-top:8px;font-family:var(--display);font-weight:700;font-stretch:108%;font-size:15px;line-height:1.2}
+
+/* ---------- lista antes → depois ---------- */
+.cl{container-type:inline-size}
+.cl-row,.cl-axis{display:grid;grid-template-columns:minmax(150px,270px) minmax(0,1fr) 158px 82px;grid-template-areas:"name track vals delta";align-items:center;column-gap:16px}
+.cl-row{padding:6px 8px;margin:0 -8px;min-height:38px}
+.cl-row:hover{background:var(--hover)}
+.cl-name{grid-area:name;font-size:14.5px;line-height:1.3;min-width:0;overflow-wrap:anywhere}
+.cl-sub{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
+.cl-track{grid-area:track;position:relative;height:22px}
+.cl-vals{grid-area:vals;text-align:right;font-variant-numeric:tabular-nums;font-size:14.5px;white-space:nowrap}
+.cl-vals s{text-decoration:none;color:var(--muted)}
+.cl-vals b{font-weight:600}
+.cl-vals .to{color:var(--muted);margin:0 2px}
+.cl-delta{grid-area:delta;text-align:right;font-size:14px;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+.ar{font-style:normal;font-size:10px;vertical-align:1px;margin-right:3px}
+.ar.inc{color:var(--inc)} .ar.dec{color:var(--dec)}
+.isnew{font-family:var(--display);font-weight:700;font-stretch:110%;font-size:12px;letter-spacing:.1em;color:var(--ink)}
+.tk{position:absolute;top:0;bottom:0;width:1px;background:var(--grid)}
+.rail{position:absolute;left:0;right:0;top:50%;height:1px;background:var(--grid)}
+.zero{position:absolute;top:-4px;bottom:-4px;width:1px;background:var(--axis)}
+.seg{position:absolute;top:50%;height:4px;margin-top:-2px;opacity:.6}
+.seg.inc{background:var(--inc)} .seg.dec{background:var(--dec)}
+.dot{position:absolute;top:50%;width:11px;height:11px;margin:-5.5px 0 0 -5.5px;border-radius:50%;box-shadow:0 0 0 2px var(--panel)}
+.cl-row:hover .dot{box-shadow:0 0 0 2px var(--hover)}
+.dot.before{background:var(--before)}
+.dot.inc{background:var(--inc)} .dot.dec{background:var(--dec)} .dot.same{background:var(--ink-2)}
+.dot.new{border-radius:0;transform:rotate(45deg);width:10px;height:10px;margin:-5px 0 0 -5px;border:2px solid var(--ink);background:var(--panel);box-shadow:none}
+.bar{position:absolute;top:50%;height:12px;margin-top:-6px;min-width:2px}
+.bar.inc{background:var(--inc);border-radius:0 1px 1px 0}
+.bar.dec{background:var(--dec);border-radius:1px 0 0 1px}
+.cl-na{position:absolute;inset:0;display:flex;align-items:center;font-size:12.5px;color:var(--muted);white-space:nowrap}
+.cl-axis{height:22px}
+.cl-axis .cl-track{height:22px}
+.ax{position:absolute;top:3px;font-size:11.5px;color:var(--muted);transform:translateX(-50%);white-space:nowrap;font-variant-numeric:tabular-nums}
+.ax.first{transform:none}.ax.last{transform:translateX(-100%)}
+.cl-group{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin:22px 0 2px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.cl-group:first-child{margin-top:4px}
+.cl-group .t{font-family:var(--display);font-weight:700;font-stretch:110%;font-size:15px;text-transform:uppercase;letter-spacing:.05em}
+.cl-group .n{color:var(--muted);font-size:13px}
+.empty{color:var(--muted);font-size:14px;padding:12px 0}
+.panel h3 + .cl{margin-top:14px}
+@container (max-width:620px){
+  .cl-row,.cl-axis{grid-template-columns:minmax(0,1fr) auto auto;grid-template-areas:"name vals delta" "track track track";row-gap:6px;column-gap:12px}
+  .cl-axis{grid-template-areas:"track track track"}
+  .cl-axis>:not(.cl-track){display:none}
+  .cl-row{padding:8px 8px}
+  .cl-delta{min-width:58px}
+  .th{width:46px;height:30px}
+}
+@media (max-width:600px){.pv{width:262px}.pv img{width:240px}}
+
+/* ---------- ficha técnica ---------- */
+.spec{width:100%;border-collapse:collapse;font-size:14.5px}
+.spec th,.spec td{padding:10px 0;border-bottom:1px solid var(--line);vertical-align:middle}
+.spec tr:last-child th,.spec tr:last-child td{border-bottom:0}
+.spec th{text-align:left;font-weight:400;color:var(--ink-2);padding-right:16px}
+.spec th small{display:block;color:var(--muted);font-size:12.5px;margin-top:2px}
+.spec td{text-align:right;font-family:var(--display);font-weight:700;font-stretch:108%;font-size:19px;white-space:nowrap;color:var(--ink)}
+.spec td .ar{font-size:11px}
+
+/* ---------- tabela simples ---------- */
+.tbl{width:100%;border-collapse:collapse;font-size:14.5px;font-variant-numeric:tabular-nums}
+.tbl th{font-family:var(--display);font-weight:600;font-stretch:108%;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2);text-align:right;padding:8px 0 8px 12px;border-bottom:1px solid var(--axis)}
+.tbl th:first-child,.tbl td:first-child{text-align:left;padding-left:0}
+.tbl td{text-align:right;padding:9px 0 9px 12px;border-bottom:1px solid var(--line)}
+.tbl tr:last-child td{border-bottom:0}
+.scroll-x{overflow-x:auto}
+
+/* ---------- mapa de calor ---------- */
+.heat{width:100%;border-collapse:separate;border-spacing:3px;font-variant-numeric:tabular-nums;min-width:440px}
+.heat th{font-family:var(--display);font-weight:600;font-stretch:108%;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2);padding:6px 8px;text-align:center}
+.heat tbody th{text-align:left;text-transform:none;letter-spacing:0;font-family:var(--text);font-size:14px;font-weight:500;color:var(--ink);white-space:nowrap}
+.heat td{padding:12px 6px;text-align:center;background:var(--mid)}
+.heat .v{display:block;font-size:17px;font-weight:700;color:var(--ink)}
+.heat .s{display:block;font-size:12px;color:var(--ink);opacity:.8;margin-top:2px}
+.heat .ar{color:var(--ink)}
+@media (max-width:600px){
+  .heat{min-width:0;border-spacing:2px}
+  .heat th{font-size:11px;padding:4px 2px;letter-spacing:0}
+  .heat tbody th{font-size:12.5px;white-space:normal;padding-right:4px}
+  .heat td{padding:9px 2px}
+  .heat .v{font-size:14px}
+  .heat .s{font-size:10.5px}
+}
+
+/* ---------- gráfico de XP ---------- */
+.xp{position:relative;margin-top:6px}
+.xp svg{display:block;overflow:visible}
+.xp .grid{stroke:var(--grid);stroke-width:1}
+.xp .base{stroke:var(--axis);stroke-width:1}
+.xp .axl{fill:var(--muted);font-size:12px;font-family:var(--text)}
+.xp .ln{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.xp .ln.before{stroke:var(--before)} .xp .ln.after{stroke:var(--dec)}
+.xp .gap{fill:var(--dec);opacity:.09}
+.xp .pt{stroke:var(--panel);stroke-width:2}
+.xp .pt.before{fill:var(--before)} .xp .pt.after{fill:var(--dec)}
+.xp .endl{fill:var(--ink-2);font-size:12.5px;font-family:var(--text);font-weight:600}
+.xp .cross{stroke:var(--axis);stroke-width:1}
+.tt{position:absolute;pointer-events:none;background:var(--page);border:1px solid var(--axis);padding:8px 11px;font-size:13px;line-height:1.5;min-width:160px;font-variant-numeric:tabular-nums}
+.tt .h{font-family:var(--display);font-weight:700;font-stretch:110%;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+.tt .r{display:flex;align-items:center;gap:7px}
+.tt .r b{margin-left:auto;font-weight:600}
+.tt .mk{width:9px;height:9px}
+
+/* ---------- paraquedas ---------- */
+.chute{display:grid;grid-template-columns:64px 1fr;gap:0 14px;margin:10px 0 4px}
+.chute-bar{position:relative;height:250px;display:flex;flex-direction:column;border-left:1px solid var(--axis)}
+.z-ok{background:color-mix(in oklab,var(--ok) 40%,var(--panel))}
+.z-risk{background:color-mix(in oklab,var(--warn) 40%,var(--panel))}
+.z-no{background:color-mix(in oklab,var(--bad) 45%,var(--panel))}
+.chute-bar .m{position:absolute;left:-1px;transform:translate(-100%,-50%);padding-right:8px;font-size:12px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.chute-labels{position:relative;height:250px}
+.chute-labels div{position:absolute;left:0;right:0;transform:translateY(-50%);font-size:14px;line-height:1.35}
+.chute-labels b{font-family:var(--display);font-weight:700;font-stretch:108%;font-size:15px;display:block}
+.chute-labels span{color:var(--ink-2);font-size:13.5px}
+.chute-wrap{padding-left:42px}
+
+/* ---------- trilhas ---------- */
+.tabs{display:flex;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--line);margin:14px 0 0}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{background:transparent;border:0;color:var(--ink-2);font-family:var(--display);font-weight:600;font-stretch:110%;text-transform:uppercase;letter-spacing:.06em;font-size:14px;padding:10px 14px;cursor:pointer;white-space:nowrap}
+.tabs button:first-child{padding-left:0}
+.tabs button:hover{color:var(--ink)}
+.tabs button[aria-selected="true"]{color:var(--ink);box-shadow:inset 0 -3px 0 var(--mustard)}
+.prog-sum{color:var(--ink-2);font-size:15px;margin:14px 0 6px}
+.prog-sum b{color:var(--ink);font-weight:600}
+
+footer{margin-top:72px;border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);font-size:13.5px}
+footer p{margin:0 0 6px;max-width:90ch}
+footer a{color:var(--ink-2)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brand" aria-hidden="true">
+      <div class="wordmark">Wardogs</div>
+      <div class="season">Season 02</div>
+    </div>
+    <h1 data-i18n="h1"></h1>
+    <p class="lede" id="lede"></p>
+    <p class="src" data-i18n="src"></p>
+  </div>
+</header>
+
+<nav class="nav" aria-label="Sections">
+  <div class="wrap">
+    <div class="nav-links">
+      <a href="#combate" data-i18n="nav.combat"></a>
+      <a href="#construcoes" data-i18n="nav.build"></a>
+      <a href="#precos" data-i18n="nav.prices"></a>
+      <a href="#recompensas" data-i18n="nav.rewards"></a>
+      <a href="#progressao" data-i18n="nav.prog"></a>
+      <a href="#outros" data-i18n="nav.other"></a>
+    </div>
+    <div class="nav-tools">
+      <label class="chk"><input type="checkbox" id="toggle-new"><span data-i18n="toggle.new"></span></label>
+      <div class="segc lang" role="group" aria-label="Idioma / Language">
+        <button type="button" data-lang="pt" aria-pressed="false" title="Português">PT</button>
+        <button type="button" data-lang="en" aria-pressed="false" title="English">EN</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <div class="howto">
+    <span class="k"><i class="mk before"></i>Season 1</span>
+    <span class="k"><i class="mk dec"></i><span><i class="ar dec">▼</i><span data-i18n="lg.dec"></span></span></span>
+    <span class="k"><i class="mk inc"></i><span><i class="ar inc">▲</i><span data-i18n="lg.inc"></span></span></span>
+    <span class="k"><i class="mk new"></i><span data-i18n="lg.new"></span></span>
+    <span class="fine" data-i18n="lg.fine"></span>
+  </div>
+
+  <!-- ================= COMBATE ================= -->
+  <section id="combate" class="sec">
+    <h2 data-i18n="nav.combat"></h2>
+    <p class="sec-d" data-i18n="combat.d"></p>
+    <div class="cols">
+      <div class="panel s7">
+        <h3 data-i18n="calibre.h3"></h3>
+        <p class="pd" data-i18n="calibre.pd"></p>
+        <div id="cl-calibre"></div>
+      </div>
+      <div class="panel s5">
+        <h3 data-i18n="armor.h3"></h3>
+        <p class="pd" data-i18n="armor.pd"></p>
+        <div id="cl-armor"></div>
+        <h4 data-i18n="through.h4"></h4>
+        <div id="cl-through"></div>
+      </div>
+      <div class="panel s12">
+        <h3 data-i18n="heat.h3"></h3>
+        <p class="pd" data-i18n="heat.pd"></p>
+        <div class="scroll-x"><table class="heat" id="heat"></table></div>
+        <p class="note" data-i18n="heat.note"></p>
+      </div>
+      <div class="panel s6">
+        <h3 data-i18n="chute.h3"></h3>
+        <div class="chute-wrap">
+          <div class="chute" id="chute"></div>
+        </div>
+        <h4 data-i18n="chute.h4"></h4>
+        <div id="cl-chute"></div>
+      </div>
+      <div class="panel s6">
+        <h3 data-i18n="cmisc.h3"></h3>
+        <div id="cl-combat-misc"></div>
+        <table class="spec" id="spec-combat" style="margin-top:10px"></table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONSTRUÇÕES ================= -->
+  <section id="construcoes" class="sec">
+    <h2 data-i18n="nav.build"></h2>
+    <p class="sec-d" data-i18n="build.d"></p>
+    <div class="cols">
+      <div class="panel s12">
+        <div class="ph">
+          <div><h3 data-i18n="bcost.h3"></h3></div>
+          <div class="ctrls" id="ctrl-build"></div>
+        </div>
+        <p class="pd" data-i18n="bcost.pd"></p>
+        <div id="cl-build"></div>
+      </div>
+      <div class="panel s7">
+        <h3 class="with-th" data-th="Drill Rig"><span>Drill Rig</span></h3>
+        <p class="pd" data-i18n="drill.pd"></p>
+        <div id="cl-drill"></div>
+      </div>
+      <div class="panel s5">
+        <h3 data-i18n="bweap.h3"></h3>
+        <p class="pd" data-i18n="rowscale"></p>
+        <div id="cl-bweap"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PREÇOS ================= -->
+  <section id="precos" class="sec">
+    <h2 data-i18n="prices.h2"></h2>
+    <p class="sec-d" id="price-sum"></p>
+    <div class="cols">
+      <div class="panel s12">
+        <div class="ph">
+          <div><h3 data-i18n="price.h3"></h3></div>
+          <div class="ctrls" id="ctrl-price"></div>
+        </div>
+        <p class="pd" data-i18n="price.pd"></p>
+        <div id="cl-price"></div>
+        <p class="note" data-i18n="price.note"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RECOMPENSAS ================= -->
+  <section id="recompensas" class="sec">
+    <h2 data-i18n="nav.rewards"></h2>
+    <p class="sec-d" data-i18n="rewards.d"></p>
+    <div class="cols">
+      <div class="panel s7">
+        <h3 data-i18n="actcash.h3"></h3>
+        <div id="cl-act-cash"></div>
+      </div>
+      <div class="panel s5">
+        <h3 data-i18n="actxp.h3"></h3>
+        <div id="cl-act-xp"></div>
+        <table class="spec" id="spec-rewards" style="margin-top:10px"></table>
+      </div>
+
+      <div class="panel s12">
+        <h3 data-i18n="log.h3"></h3>
+        <p class="pd" data-i18n="log.pd"></p>
+        <div class="cols" style="gap:8px 32px">
+          <div class="s6"><h4 style="margin-top:4px">Cash</h4><div id="cl-log-cash"></div></div>
+          <div class="s6"><h4 style="margin-top:4px">XP</h4><div id="cl-log-xp"></div></div>
+        </div>
+        <h4 data-i18n="streak.h4"></h4>
+        <div class="scroll-x">
+          <table class="tbl" id="tbl-streak"></table>
+        </div>
+      </div>
+
+      <div class="panel s12">
+        <div class="ph">
+          <div><h3 data-i18n="veh.h3"></h3></div>
+          <div class="ctrls" id="ctrl-veh"></div>
+        </div>
+        <p class="pd" data-i18n="veh.pd"></p>
+        <div id="cl-veh"></div>
+        <p class="note" data-i18n="veh.note"></p>
+      </div>
+
+      <div class="panel s7">
+        <h3 data-i18n="bkill.h3"></h3>
+        <p class="pd" data-i18n="bkill.pd"></p>
+        <div id="cl-bkill"></div>
+      </div>
+      <div class="panel s5">
+        <h3 data-i18n="crate.h3"></h3>
+        <div id="cl-crate"></div>
+        <h4>Spotting</h4>
+        <div id="cl-spot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROGRESSÃO ================= -->
+  <section id="progressao" class="sec">
+    <h2 data-i18n="nav.prog"></h2>
+    <p class="sec-d" data-i18n="prog.d"></p>
+    <div class="cols">
+      <div class="panel s12">
+        <h3 data-i18n="xp.h3"></h3>
+        <p class="pd" data-i18n="xp.pd"></p>
+        <div class="xp" id="xp-chart"></div>
+        <h4 data-i18n="xp.h4"></h4>
+        <div id="cl-xp"></div>
+      </div>
+
+      <div class="panel s12">
+        <h3 data-i18n="unlock.h3"></h3>
+        <div class="tabs" role="tablist" id="prog-tabs"></div>
+        <p class="prog-sum" id="prog-sum"></p>
+        <div id="cl-prog"></div>
+        <p class="note" data-i18n="unlock.note"></p>
+      </div>
+
+      <div class="panel s12">
+        <div class="ph">
+          <div><h3 data-i18n="cost.h3"></h3></div>
+          <div class="ctrls" id="ctrl-cost"></div>
+        </div>
+        <p class="pd" data-i18n="cost.pd"></p>
+        <div id="cl-cost"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= OUTROS ================= -->
+  <section id="outros" class="sec">
+    <h2 data-i18n="nav.other"></h2>
+    <p class="sec-d" data-i18n="other.d"></p>
+    <div class="cols">
+      <div class="panel s6">
+        <h3 data-i18n="omisc.h3"></h3>
+        <p class="pd" data-i18n="rowscale"></p>
+        <div id="cl-misc"></div>
+      </div>
+      <div class="panel s6">
+        <h3 data-i18n="rules.h3"></h3>
+        <table class="spec" id="spec-misc"></table>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p data-i18n="foot1"></p>
+    <p data-i18n="foot2"></p>
+    <p data-i18n="foot3"></p>
+  </div>
+</footer>
+
+<div class="pv" id="pv" hidden aria-hidden="true"><img alt=""><span class="pv-l"></span></div>
+
+<script>
+(function () {
+'use strict';
+
+/* =================================================================
+   TEXTOS (pt / en)
+   ================================================================= */
+const SRC = 'https://store.steampowered.com/news/app/1867240/view/670630562731396445';
+const I18N = {
+  pt: {
+    'doc.title': 'WARDOGS Season 02 em números',
+    'doc.desc': 'Todas as mudanças numéricas de balanceamento do patch da Season 02 de WARDOGS, com antes e depois lado a lado.',
+    'h1': 'Balanceamento em números',
+    'lede': 'Cada valor que mudou no patch da Season 2, com o antes (Season 1) e o depois lado a lado. São <b>{n}</b> números alterados. Mudança sem número exato ficou de fora.',
+    'src': `Fonte: <a href="${SRC}" rel="noopener">WARDOGS | Season 02 Patch Notes</a>, Steam, 14/10/2026. Página não oficial, feita por fã.`,
+    'nav.combat': 'Combate', 'nav.build': 'Construções', 'nav.prices': 'Preços', 'nav.rewards': 'Recompensas', 'nav.prog': 'Progressão', 'nav.other': 'Outros',
+    'toggle.new': '<span class="long">Mostrar </span>itens novos',
+    'lg.dec': 'diminuiu na Season 2', 'lg.inc': 'aumentou na Season 2',
+    'lg.new': 'item novo, sem comparação (desligado por padrão)',
+    'lg.fine': 'A cor mostra só para onde o número foi. Ela não diz se aquilo é buff ou nerf: preço subindo é ruim para você, recompensa subindo é bom. Passe o mouse no nome de um item para ver a imagem dele.',
+    'combat.d': 'Calibres pesados perderam dano base e as armaduras de nível 3 e 4 seguram menos. Os dois cortes se somam de jeitos diferentes dependendo da arma.',
+    'calibre.h3': 'Dano base por calibre',
+    'calibre.pd': 'Vale para toda arma que usa esses cartuchos, inclusive as de veículo (miniguns do Little Bird AH-6M, Z20 Lakota e Humvee). Índice: S1 = 100.',
+    'armor.h3': 'Armadura e capacete', 'armor.pd': 'Quanto do dano a proteção absorve.',
+    'through.h4': 'Dano que passa pela proteção',
+    'heat.h3': 'Dano por acerto: S2 comparado com S1',
+    'heat.pd': 'Junta o corte de dano base com a armadura mais fraca. Em cada célula, a variação e o dano que chega ao alvo (em % do dano base da S1) antes → depois.',
+    'heat.note': 'Estimativa: dano base × (1 − redução da proteção), em acertos na área protegida. Não considera as mudanças de dano por região do corpo (DMRs, rifles de assalto e LMGs), munição AP/HP nem queda por distância.',
+    'heat.none': 'Sem proteção', 'heat.l3': 'Nível 3', 'heat.l4': 'Nível 4', 'heat.other': 'Demais calibres',
+    'chute.h3': 'Paraquedas', 'chute.h4': 'Preço no vendor',
+    'cmisc.h3': 'Outros números de combate',
+    'build.d': 'Construir ficou bem mais caro, o Drill Rig fica menos tempo ligado e as armas construíveis gastam mais munição. Só o Talon e o Vanguard CIWS ficaram mais baratos de construir.',
+    'bcost.h3': 'Custo de construção', 'bcost.pd': 'Em supplies de construção.',
+    'drill.pd': 'Tempo máximo ligado = combustível máximo × duração por combustível. Cada linha tem a sua escala.',
+    'bweap.h3': 'Armas construíveis', 'rowscale': 'Cada linha tem a sua escala.',
+    'prices.h2': 'Preços no vendor',
+    'price.h3': 'Preço de compra por item',
+    'price.pd': 'Cada grupo tem a sua escala em dólar. Em “Variação %”, todos usam a mesma escala.',
+    'price.note': 'Acessórios: o patch diz que a maioria dos muzzles, grips e foregrips caiu até um terço, mas só lista as maiores quedas, que são as que aparecem aqui.',
+    'rewards.d': 'Logística e veículos sem armamento pagam menos. Kill com arma de assalto, captura de drill tower e veículos armados pagam mais.',
+    'actcash.h3': 'Ações em combate · cash', 'actxp.h3': 'Ações em combate · XP',
+    'log.h3': 'Logística', 'log.pd': 'O valor base caiu, mas agora tem bônus por entregas seguidas. Cash e XP ficam em escalas separadas.',
+    'streak.h4': 'Bônus por sequência (novo)',
+    'veh.h3': 'Destruir veículo inimigo · cash',
+    'veh.pd': 'Agora cada variante tem a sua recompensa: as armadas valem bem mais que as desarmadas.',
+    'veh.note': '* Na S1 cada família de veículo pagava um valor só (o patch passou a pagar por variante). Para as variantes, o valor S1 mostrado é o da família.',
+    'bkill.h3': 'Destruir construção inimiga · cash', 'bkill.pd': 'Agora o cash é igual ao custo de construção, e o XP fica em torno de 25% do cash.',
+    'crate.h3': 'Destruir caixa de suprimento · cash',
+    'prog.d': 'Chegar ao nível 20 de uma trilha agora exige menos da metade do XP. Quase todos os acessórios trocaram de nível.',
+    'xp.h3': 'XP total para chegar ao nível', 'xp.pd': 'Trilhas de função (role tracks). A área entre as linhas é o XP que você deixa de precisar.',
+    'xp.h4': 'Os mesmos números',
+    'unlock.h3': 'Nível de desbloqueio por trilha',
+    'unlock.note': 'Nível 0 = liberado desde o início. Itens que vieram de outra trilha mostram o nível que tinham lá.',
+    'cost.h3': 'Custo de desbloqueio', 'cost.pd': 'Quanto custa liberar o item na trilha (não é o preço de compra no vendor).',
+    'other.d': 'O que sobrou com número: inventário, ping de assistência, troca de time e desconto para o time que está perdendo.',
+    'omisc.h3': 'Antes e depois', 'rules.h3': 'Regras com número',
+    'foot1': 'Dados tirados do patch notes oficial da Season 02 de WARDOGS publicado na Steam em 14/10/2026. Valores com “~” estão como aproximados no próprio patch.',
+    'foot2': 'Imagens dos itens: <a href="https://www.dexerto.com/wikis/wardogs/" rel="noopener">wiki de WARDOGS da Dexerto</a>, redimensionadas pelo <a href="https://wsrv.nl/" rel="noopener">wsrv.nl</a>. Os itens novos da Season 2 ainda não têm imagem lá.',
+    'foot3': 'Página não oficial, feita por fã, sem vínculo com os desenvolvedores do jogo.',
+    'ctl.abs': 'Valor', 'ctl.pct': 'Variação %', 'ctl.all': 'Todos', 'ctl.inc': 'Subiu', 'ctl.dec': 'Caiu',
+    'new': 'NOVO', 'item1': 'item', 'itemN': 'itens', 'empty': 'Nada para mostrar com esse filtro.',
+    'na.new': 'item novo', 'na.free': 'antes era grátis', 'na.lvl': 'nível não mudou', 'was0': 'era 0',
+    'pp': ' p.p.', 'lvlu': ' nv', 'free': 'grátis', 'start': 'início', 'lvlax': 'nv ', 'level': 'Nível',
+    'M': ' mi', 'K': ' mil', 'slot': 'slot', 'slots': 'slots',
+    'from': 'antes na trilha {x}', 'cost': 'custo', 'diff': 'diferença',
+    'xp.aria': 'XP total por nível, Season 1 contra Season 2. Os valores estão na lista abaixo.',
+    'streak.h': ['Sequência', 'Cash por entrega seguida', 'XP por entrega seguida', 'Até'],
+    'streak.rows': ['Caixas (crates)', 'Pallets', 'Jogadores', 'Viagens de volta'],
+    'streak.n': '{n} seguidas',
+    'chute': [
+      ['Acima de ~50 m', 'Dá tempo de abrir e frear.'],
+      ['Entre ~10 e ~50 m', 'Abre, mas se você vier caindo rápido não freia a tempo e toma dano de queda.'],
+      ['Abaixo de ~10 m', 'Não abre.'],
+    ],
+  },
+  en: {
+    'doc.title': 'WARDOGS Season 02 in numbers',
+    'doc.desc': 'Every balance number that changed in the WARDOGS Season 02 patch, before and after side by side.',
+    'h1': 'Balance changes in numbers',
+    'lede': 'Every value that changed in the Season 2 patch, with before (Season 1) and after side by side. That is <b>{n}</b> changed numbers. Changes without an exact number were left out.',
+    'src': `Source: <a href="${SRC}" rel="noopener">WARDOGS | Season 02 Patch Notes</a>, Steam, Oct 14, 2026. Unofficial fan-made page.`,
+    'nav.combat': 'Combat', 'nav.build': 'Building', 'nav.prices': 'Prices', 'nav.rewards': 'Rewards', 'nav.prog': 'Progression', 'nav.other': 'Other',
+    'toggle.new': '<span class="long">Show </span>new items',
+    'lg.dec': 'went down in Season 2', 'lg.inc': 'went up in Season 2',
+    'lg.new': 'new item, nothing to compare (hidden by default)',
+    'lg.fine': 'Color only shows which way the number moved. It does not say buff or nerf: a higher price is bad for you, a higher reward is good. Hover an item name to see its picture.',
+    'combat.d': 'Heavy calibres lost base damage and level 3 and 4 armor absorbs less. The two cuts stack differently depending on the weapon.',
+    'calibre.h3': 'Base damage by calibre',
+    'calibre.pd': 'Applies to every weapon that fires these rounds, vehicle weapons included (Little Bird AH-6M, Z20 Lakota and Humvee miniguns). Index: S1 = 100.',
+    'armor.h3': 'Armor and helmets', 'armor.pd': 'How much damage the protection absorbs.',
+    'through.h4': 'Damage that gets through',
+    'heat.h3': 'Damage per hit: S2 vs S1',
+    'heat.pd': 'Combines the base damage cut with the weaker armor. Each cell shows the change and the damage that reaches the target (as % of S1 base damage), before → after.',
+    'heat.note': 'Estimate: base damage × (1 − protection reduction), for hits on the protected area. Ignores the hit-location damage changes (DMRs, assault rifles and LMGs), AP/HP ammo and damage falloff.',
+    'heat.none': 'No protection', 'heat.l3': 'Level 3', 'heat.l4': 'Level 4', 'heat.other': 'Other calibres',
+    'chute.h3': 'Parachutes', 'chute.h4': 'Vendor price',
+    'cmisc.h3': 'Other combat numbers',
+    'build.d': 'Building got much more expensive, the Drill Rig runs for less time and buildable weapons burn more ammo. Only the Talon and the Vanguard CIWS got cheaper to build.',
+    'bcost.h3': 'Build cost', 'bcost.pd': 'In build supplies.',
+    'drill.pd': 'Max uptime = max fuel × duration per fuel. Each row has its own scale.',
+    'bweap.h3': 'Buildable weapons', 'rowscale': 'Each row has its own scale.',
+    'prices.h2': 'Vendor prices',
+    'price.h3': 'Purchase price per item',
+    'price.pd': 'Each group has its own dollar scale. In “Change %” they all share one scale.',
+    'price.note': 'Attachments: the patch says most muzzles, grips and foregrips dropped by up to a third, but only lists the biggest drops, which are the ones shown here.',
+    'rewards.d': 'Logistics and unarmed vehicles pay less. Assault-weapon kills, drill tower captures and armed vehicles pay more.',
+    'actcash.h3': 'Combat actions · cash', 'actxp.h3': 'Combat actions · XP',
+    'log.h3': 'Logistics', 'log.pd': 'Base payouts went down, but there are now bonuses for consecutive deliveries. Cash and XP use separate scales.',
+    'streak.h4': 'Delivery streak bonus (new)',
+    'veh.h3': 'Destroying an enemy vehicle · cash',
+    'veh.pd': 'Each variant now has its own reward: armed variants are worth far more than unarmed ones.',
+    'veh.note': '* In S1 each vehicle family paid a single value (the patch now pays per variant). For variants, the S1 value shown is the family value.',
+    'bkill.h3': 'Destroying an enemy buildable · cash', 'bkill.pd': 'Cash now matches the build cost, and XP is roughly 25% of the cash.',
+    'crate.h3': 'Destroying a supply crate · cash',
+    'prog.d': 'Reaching level 20 in a role track now takes less than half the XP. Almost every attachment moved to a different level.',
+    'xp.h3': 'Total XP to reach a level', 'xp.pd': 'Role tracks. The area between the lines is the XP you no longer need.',
+    'xp.h4': 'Same numbers',
+    'unlock.h3': 'Unlock level by track',
+    'unlock.note': 'Level 0 = unlocked from the start. Items that moved from another track show the level they had there.',
+    'cost.h3': 'Unlock cost', 'cost.pd': 'What it costs to unlock the item in the track (not the vendor purchase price).',
+    'other.d': 'The rest of the numbers: inventory, assistance pings, team switching and the losing-team discount.',
+    'omisc.h3': 'Before and after', 'rules.h3': 'Rules with numbers',
+    'foot1': 'Data from the official WARDOGS Season 02 patch notes posted on Steam on Oct 14, 2026. Values marked “~” are given as approximate in the patch itself.',
+    'foot2': 'Item images: <a href="https://www.dexerto.com/wikis/wardogs/" rel="noopener">Dexerto WARDOGS wiki</a>, resized by <a href="https://wsrv.nl/" rel="noopener">wsrv.nl</a>. New Season 2 items have no image there yet.',
+    'foot3': 'Unofficial fan-made page, not affiliated with the game’s developers.',
+    'ctl.abs': 'Value', 'ctl.pct': 'Change %', 'ctl.all': 'All', 'ctl.inc': 'Up', 'ctl.dec': 'Down',
+    'new': 'NEW', 'item1': 'item', 'itemN': 'items', 'empty': 'Nothing to show with this filter.',
+    'na.new': 'new item', 'na.free': 'used to be free', 'na.lvl': 'level unchanged', 'was0': 'was 0',
+    'pp': ' pts', 'lvlu': ' lvl', 'free': 'free', 'start': 'start', 'lvlax': 'lvl ', 'level': 'Level',
+    'M': 'M', 'K': 'k', 'slot': 'slot', 'slots': 'slots',
+    'from': 'previously in {x}', 'cost': 'cost', 'diff': 'difference',
+    'xp.aria': 'Total XP per level, Season 1 vs Season 2. The values are in the list below.',
+    'streak.h': ['Streak', 'Cash per delivery in a row', 'XP per delivery in a row', 'Up to'],
+    'streak.rows': ['Crates', 'Pallets', 'Players', 'Return trips'],
+    'streak.n': '{n} in a row',
+    'chute': [
+      ['Above ~50 m', 'Enough time to open and slow down.'],
+      ['Between ~10 and ~50 m', 'Opens, but if you are falling fast you won’t slow down in time and you take fall damage.'],
+      ['Below ~10 m', 'Won’t open.'],
+    ],
+  },
+};
+
+let LANG = window.WD_LANG === 'pt' ? 'pt' : 'en';
+const t = k => (I18N[LANG][k] !== undefined ? I18N[LANG][k] : I18N.en[k]);
+const L = (pt, en) => ({pt, en});
+const tx = v => v == null ? '' : typeof v === 'object' ? (v[LANG] !== undefined ? v[LANG] : v.en) : v;
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+/* =================================================================
+   IMAGENS (wiki Dexerto, redimensionadas por wsrv.nl)
+   ================================================================= */
+const IMG = {"T-21":"weapons-t-21",
+  "AMP-9":"weapons-amp-9",
+  "MP5":"weapons-mp5",
+  "Super-45":"weapons-super-45",
+  "Scout Rifle TD":"weapons-scout-rifle-td",
+  "Compound Bow":"weapons-compound-bow",
+  "GGX 18":"weapons-ggx-18",
+  "GGX 17":"weapons-ggx-17",
+  "BMR-308":"weapons-bmr-308",
+  "MGL-40":"weapons-mgl-40",
+  "AMR 50":"weapons-amr-50",
+  "AK74":"weapons-ak74",
+  "AK74 + 30 RND Magazine":"weapons-ak74",
+  "Deagle":"weapons-deagle",
+  "Galil":"weapons-galil",
+  "RPG-7":"weapons-rpg-7",
+  "MAAWS":"weapons-maaws",
+  "PKM":"weapons-pkm",
+  "FAL":"weapons-fal",
+  "Judge":"weapons-judge",
+  "M4":"weapons-m4",
+  "M249":"weapons-m249-saw",
+  "SV98":"weapons-sv98",
+  "MK22":"weapons-mk22",
+  "9K333 Verba":"weapons-9k333-verba",
+  "PP-19 Vityaz":"weapons-pp-19-vityaz",
+  "AMP-9 15 RND Magazine":"attachments-amp-9-15-rnd-magazine",
+  "AMP-9 20 RND Magazine":"attachments-amp-9-20-rnd-magazine",
+  "AMP-9 30 RND Magazine":"attachments-amp-9-30-rnd-magazine",
+  "AMP-9 50 RND Drum Magazine":"attachments-amp-9-50-rnd-drum-magazine",
+  "MP5 30 RND Magazine":"attachments-mp5-30-rnd-magazine",
+  "MP5 50 RND Drum Magazine":"attachments-mp5-50-rnd-drum-magazine",
+  "Super-45 30 RND Magazine":"attachments-super-45-30-rnd-magazine",
+  "PP-19 Vityaz 10 RND Magazine":"attachments-pp-19-vityaz-10-rnd-magazine",
+  "PP-19 50 RND Vityaz Drum Magazine":"attachments-pp-19-50-rnd-vityaz-drum-magazine",
+  "SVD 10 RND Magazine":"attachments-svd-10-rnd-magazine",
+  "STANAG 30 RND Magazine":"attachments-stanag-30-rnd-magazine",
+  "AK74 75 RND Drum Magazine":"attachments-ak74-75-rnd-drum-magazine",
+  "M249 200 RND Box":"attachments-m249-200-rnd-box",
+  "SKS Bipod":"attachments-sks-bipod",
+  "Birdcage Flash Hider":"attachments-birdcage-flash-hider",
+  "BMR-308 Flash Hider":"attachments-bmr-308-flash-hider",
+  "Shift Foregrip":"attachments-shift-foregrip",
+  "GOL Multi-Caliber Suppressor":"attachments-gol-multi-caliber-suppressor",
+  "Full Choke":"attachments-full-choke",
+  "RC-556 Suppressor":"attachments-rc-556-suppressor",
+  "AMR 50 Cal Muzzle Brake":"attachments-amr-50-cal-muzzle-brake",
+  "12 Gauge Suppressor":"attachments-12-gauge-suppressor",
+  "Tricon 1.5x Compact Prism Scope":"attachments-tricon-1-5x-compact-prism-scope",
+  "Spitfire 3X":"attachments-spitfire-3x",
+  "Kobra Reflex":"attachments-kobra-reflex",
+  "Compact T-2 Red Dot":"attachments-compact-t-2-red-dot",
+  "2.5x Combat Optic":"attachments-2-5x-combat-optic",
+  "Four Reticle Reflex":"attachments-four-reticle-reflex",
+  "3x Tactical Prism Scope":"attachments-3x-tactical-prism-scope",
+  "RVG Vertical Foregrip":"attachments-rvg-vertical-foregrip",
+  "Spectr 4x":"attachments-spectr-4x",
+  "Hexagon Brake":"attachments-hexagon-brake",
+  "3 Prong Flash Hider":"attachments-3-prong-flash-hider",
+  "CQ-2x Prism Combat Scope":"attachments-cq-2x-prism-combat-scope",
+  "CQR Tactical Front Rail Grip":"attachments-cqr-tactical-front-rail-grip",
+  "CQB 74 Brake":"attachments-cqb-74-brake",
+  "PBS-4 Suppressor":"attachments-pbs-4-suppressor",
+  "TopComp Brake":"attachments-topcomp-brake",
+  "OKP 7 Reflex":"attachments-okp-7-reflex",
+  "TGP-A Suppressor 5.45":"attachments-tgp-a-suppressor-5-45",
+  "AR Multi-Caliber Suppressor":"attachments-ar-multi-caliber-suppressor",
+  "Holographic Sight":"attachments-holographic-sight",
+  "AFG Angled Foregrip":"attachments-afg-angled-foregrip",
+  "Eclipse Flash Hider":"attachments-eclipse-flash-hider",
+  "Ballista Brake":"attachments-ballista-brake",
+  "QD-5 Suppressor":"attachments-qd-5-suppressor",
+  "PP-19 Vityaz Flash Hider":"attachments-pp-19-vityaz-flash-hider",
+  "Vektor Frenix-X Micro Reflex Sight":"attachments-vektor-frenix-x-micro-reflex-sight",
+  "PP-19-01 Vityaz 9x19 Suppressor":"attachments-pp-19-01-vityaz-9x19-suppressor",
+  "AMP-9 Tactical Flash Hider":"attachments-amp-9-tactical-flash-hider",
+  "AMP-9 9x19 Suppressor":"attachments-amp-9-9x19-suppressor",
+  "Dual Port Brake":"attachments-dual-port-brake",
+  "Super-45 Flash Hider":"attachments-super-45-flash-hider",
+  "Ghost LITE Muzzle Brake":"attachments-ghost-lite-muzzle-brake",
+  "Deadeye Flash Hider":"attachments-deadeye-flash-hider",
+  "DTK-1 Brake":"attachments-dtk-1-brake",
+  "6-10x Scope MOA":"attachments-6-10x-scope-moa",
+  "6-10x Scope MRAD":"attachments-6-10x-scope-mrad",
+  "SV98 Bipod":"attachments-sv98-bipod",
+  "SRVV Brake":"attachments-srvv-brake",
+  "BMR-308 Suppressor":"attachments-bmr-308-suppressor",
+  "Constrictor Brake":"attachments-constrictor-brake",
+  "6x Marksman Scope + Reflex":"attachments-6x-marksman-scope-reflex",
+  "Slicktap Brake":"attachments-slicktap-brake",
+  "Frontier 2.5x-10x Precision Scope":"attachments-frontier-2-5x-10x-precision-scope",
+  ".50 Cal Heavy Suppressor":"attachments-50-cal-heavy-suppressor",
+  "Three Port Brake":"attachments-three-port-brake",
+  "4x Combat Prism Scope with Reflex":"attachments-4x-combat-prism-scope-with-reflex",
+  "Improved Cylinder Choke":"attachments-improved-cylinder-choke",
+  "PKM Bipod":"attachments-pkm-bipod",
+  "Slotted Flash Hider":"attachments-slotted-flash-hider",
+  "M249 Bipod":"attachments-m249-bipod",
+  "Tread Brake":"attachments-tread-brake",
+  "Level 3 Armor":"gear-level-3-armor",
+  "Level 3 Helmet":"gear-level-3-helmet",
+  "Level 4 Armor":"gear-level-4-armor",
+  "Level 4 Helmet":"gear-level-4-helmet",
+  "Level 3 Helmet & Armor":"gear-level-3-armor",
+  "Basic Parachute":"gear-basic-parachute",
+  "Sport Parachute":"gear-sport-parachute",
+  "Ruck Backpack":"gear-ruck-backpack",
+  "Gunner Backpack + Sling":"gear-gunner-backpack-sling",
+  "Arsenal Backpack + 2 Slings":"gear-arsenal-backpack-2-slings",
+  "Ghillie Headwear & Body Suit":"gear-ghillie-body-suit",
+  "Binoculars":"equipment-binoculars",
+  "Monocular":"equipment-monocular",
+  "Range Finder":"equipment-range-finder",
+  "Infrared Range Finder":"equipment-infrared-range-finder",
+  "Remote Detonator":"equipment-remote-detonator",
+  "Remote Detonator + C4 Charge":"equipment-c4-charge",
+  "Wrench":"equipment-wrench",
+  "Halligan Bar":"equipment-halligan-bar",
+  "Medical Bag":"equipment-medical-bag",
+  "Field Resuscitator":"equipment-field-resuscitator",
+  "Defibrillator":"equipment-defibrillator",
+  "Individual First Aid Kit":"equipment-individual-first-aid-kit",
+  "Adrenaline Pen":"equipment-adrenaline-pen",
+  "M18 Smoke Grenade: Black":"equipment-m18-smoke-grenade-black",
+  "Claymore":"equipment-claymore",
+  "Heavy Drill":"equipment-heavy-drill",
+  "Drill Rig":"equipment-drill-rig",
+  "Mechanical Supply Pallet":"equipment-mechanical-supplies",
+  "Ammo Supply Pallet":"equipment-ammo-supplies",
+  "Fuel Supply Pallet":"equipment-fuel-supplies",
+  "Bremmer wall":"buildables-bremer-wall",
+  "Door":"buildables-door",
+  "Gate":"buildables-gate",
+  "Air raid shelter, bunker, crow's nest":"buildables-bunker",
+  "L81 Mortar":"buildables-l81-mortar",
+  "Stingray":"ammunition-droneprojectile",
+  "Talon 9K-SAM":"buildables-talon-9k-sam",
+  "Vanguard CIWS":"buildables-vanguard-ciws",
+  "Repair / Refuel Station":"buildables-repair-station",
+  "Kodiak":"vehicles-kodiak",
+  "Kodiak [Pickup]":"vehicles-kodiak-pickup",
+  "Kodiak [M249]":"vehicles-kodiak-m249",
+  "Humvee":"vehicles-humvee",
+  "Humvee [M249]":"vehicles-humvee-m249",
+  "Humvee [Minigun]":"vehicles-humvee-minigun",
+  "Ural":"vehicles-ural",
+  "Ural Defender":"vehicles-ural-defender",
+  "Ural Defender [M249]":"vehicles-ural-defender-m249",
+  "L2A6":"vehicles-l2a6",
+  "Little Bird AH-6M [Miniguns]":"vehicles-ah-6m-miniguns",
+  "Little Bird AH-6R [Rockets]":"vehicles-ah-6r-rockets",
+  "MH-6":"vehicles-mh-6",
+  "Z20 Lakota":"vehicles-z20-lakota",
+  "Z20 Lakota [Miniguns]":"vehicles-z20-lakota-miniguns",
+  "Havoc":"vehicles-havoc",
+  "SPH-2":"vehicles-sph-2",
+  "Bobcat":"vehicles-bobcat",
+  "Dune Buggy":"vehicles-dune-buggy",
+  "Flakpanzer Gepard":"vehicles-flakpanzer-gepard",
+  "12g Rifled Slug":"ammunition-12g-rifledslug",
+  "7.62x39mm Armor Piercing (AP)":"ammunition-762mm-armorpiercing",
+  ".308 Win Flesh Damage (HP)":"ammunition-308win-hollowpoint",
+  "5.45x39mm Flesh Damage (HP)":"ammunition-545mm-hollowpoint",
+  "9x19mm Flesh Damage (HP)":"ammunition-9mm-hollowpoint",
+  "5.56mm Flesh Damage (HP)":"ammunition-556mm-hollowpoint",
+  "5.56mm Armor Piercing (AP)":"ammunition-556mm-armorpiercing",
+  "5.45x39mm Armor Piercing (AP)":"ammunition-545mm-armorpiercing",
+  ".308 Winchester":"ammunition-308win",
+  "7.62x54mmR":"ammunition-762x54mm-tracer",
+  "7.62x39mm":"ammunition-762mm-tracer",
+  ".50 Cal":"ammunition-50cal-tracer",
+  "30mm":"ammunition-30mm"};
+const imgOrig = stem => `https://media.dexerto.com/media/wardogs-${stem}.png`;
+const imgURL = (stem, w) => `https://wsrv.nl/?url=media.dexerto.com/media/wardogs-${stem}.png&w=${w}&output=webp`;
+const imgOf = key => (key && IMG[key]) || null;
+const imgKey = it => imgOf(it.k || (typeof it.n === 'string' ? it.n : null));
+function thumb(stem) {
+  return stem
+    ? `<img class="th" src="${imgURL(stem, 112)}" data-orig="${imgOrig(stem)}" alt="" loading="lazy" decoding="async" width="56" height="34">`
+    : '<span class="th th-empty"></span>';
+}
+const pvAttrs = (stem, label) => stem ? ` data-pv="${stem}" data-pvl="${esc(label)}"` : '';
+
+/* =================================================================
+   DADOS (copiados do patch notes; b = Season 1, a = Season 2)
+   ================================================================= */
+const CALIBRE = [
+  {n: '.308 Winchester', b: 100, a: 75},
+  {n: '7.62x54mmR', b: 100, a: 80},
+  {n: '7.62x39mm', b: 100, a: 81},
+  {n: '.50 Cal', b: 100, a: 84},
+];
+const ARMOR = [
+  {n: L('Nível 3', 'Level 3'), k: 'Level 3 Armor', b: 55, a: 50},
+  {n: L('Nível 4', 'Level 4'), k: 'Level 4 Armor', b: 65, a: 60},
+];
+const THROUGH = [
+  {n: L('Nível 3', 'Level 3'), k: 'Level 3 Armor', b: 45, a: 50},
+  {n: L('Nível 4', 'Level 4'), k: 'Level 4 Armor', b: 35, a: 40},
+];
+const CHUTE_PRICE = [
+  {n: 'Basic Parachute', b: 100, a: 500},
+  {n: 'Sport Parachute', b: 1000, a: 700},
+];
+const COMBAT_MISC = [
+  {n: L('Medical Bag · durabilidade', 'Medical Bag · durability'), k: 'Medical Bag', b: 100, a: 150},
+];
+const SPEC_COMBAT = [
+  {n: L('Capacete nível 3 · redução da supressão', 'Level 3 helmet · suppression reduction'), s: L('Valor da S1 não informado', 'S1 value not given'), v: '68%', k: 'Level 3 Helmet'},
+  {n: L('Capacete nível 4 · redução da supressão', 'Level 4 helmet · suppression reduction'), s: L('Valor da S1 não informado', 'S1 value not given'), v: '80%', k: 'Level 4 Helmet'},
+  {n: L('MGL-40 · velocidade do projétil', 'MGL-40 · muzzle velocity'), v: '−25%', d: 'dec', chg: 1, k: 'MGL-40'},
+  {n: L('Super-45 · alcance efetivo', 'Super-45 · effective range'), s: L('Depois disso a queda de dano ficou maior', 'Damage falls off harder beyond it'), v: '50 m', k: 'Super-45'},
+  {n: L('Scout Rifle · tiros na cabeça para matar', 'Scout Rifle · headshots to kill'), s: L('Sem capacete / com capacete nível 1', 'No helmet / level 1 helmet'), v: '1 / 2', k: 'Scout Rifle TD'},
+];
+
+const BUILD = [
+  {n: 'Bremmer wall', b: 15, a: 32},
+  {n: 'Door', b: 22, a: 80},
+  {n: 'Gate', b: 85, a: 200},
+  {n: "Air raid shelter, bunker, crow's nest", b: 100, a: 200},
+  {n: 'L81 Mortar', b: 150, a: 600},
+  {n: 'Stingray', b: 150, a: 650},
+  {n: 'Talon 9K-SAM', b: 1000, a: 650},
+  {n: 'Vanguard CIWS', b: 1500, a: 1200},
+  {n: 'Hot Zone Magnet', b: 2250, a: 2750},
+  {n: 'Wood Base', a: 15, isNew: 1},
+  {n: 'Large Shelter', a: 250, isNew: 1},
+  {n: 'MG Nest', a: 650, isNew: 1},
+];
+const DRILL = [
+  {n: L('Combustível mínimo para ligar', 'Minimum fuel to start'), b: 1500, a: 2000},
+  {n: L('Duração por unidade de combustível', 'Duration per unit of fuel'), b: 0.05, a: 0.03, f: 's'},
+  {n: L('Tempo máximo ligado', 'Max uptime'), b: 375, a: 300, f: 's'},
+  {n: L('Combustível máximo', 'Max fuel'), b: 7500, a: 10000},
+];
+const BWEAP = [
+  {n: L('Talon · tempo de recarga', 'Talon · reload time'), k: 'Talon 9K-SAM', b: 2, a: 5, f: 's'},
+  {n: L('Talon · supplies de munição para reabastecer', 'Talon · munition supplies to restock'), k: 'Talon 9K-SAM', b: 50, a: 200},
+  {n: L('Mortar · supplies de munição para reabastecer', 'Mortar · munition supplies to restock'), k: 'L81 Mortar', b: 75, a: 150},
+  {n: L('Vanguard CIWS · tempo para destruir o Spawn Vehicle', 'Vanguard CIWS · time to kill the Spawn Vehicle'), k: 'Vanguard CIWS', b: 1, a: 2.25, f: 'x'},
+];
+
+const PRICES = [
+  {t: L('Armas', 'Weapons'), items: [
+    {n: 'T-21', b: 600, a: 1200},
+    {n: 'AMP-9', b: 900, a: 1375},
+    {n: 'MP5', b: 1500, a: 1800},
+    {n: 'Super-45', b: 2600, a: 5600},
+    {n: 'Scout Rifle TD', b: 1100, a: 1200},
+    {n: 'Compound Bow', b: 800, a: 1350},
+    {n: 'GGX 18', b: 800, a: 1000},
+    {n: 'BMR-308', b: 6000, a: 6250},
+    {n: 'MGL-40', b: 6000, a: 7500},
+    {n: 'AMR 50', b: 8800, a: 14800},
+    {n: 'AK74', b: 1600, a: 800},
+    {n: 'Deagle', b: 900, a: 750},
+    {n: 'Galil', b: 2200, a: 2000},
+    {n: 'RPG-7', b: 2000, a: 1800},
+    {n: 'MAAWS', b: 2600, a: 2400},
+    {n: 'PKM', b: 4500, a: 4100},
+    {n: 'FAL', b: 6500, a: 6000},
+    {n: 'PP-19 Bizon', a: 1000, isNew: 1},
+    {n: 'TCX-SPR', a: 3200, isNew: 1},
+    {n: 'Evo-3 Ultra', a: 7250, isNew: 1},
+    {n: 'M14', a: 7400, isNew: 1},
+  ]},
+  {t: L('Proteção', 'Protection'), items: [
+    {n: 'Level 3 Armor', b: 2000, a: 2500},
+    {n: 'Level 3 Helmet', b: 1500, a: 2000},
+    {n: 'Level 4 Armor', b: 4000, a: 5000},
+    {n: 'Level 4 Helmet', b: 3000, a: 4500},
+  ]},
+  {t: L('Equipamento', 'Equipment'), items: [
+    {n: 'Binoculars', b: 75, a: 180},
+    {n: 'Monocular', b: 150, a: 350},
+    {n: 'Range Finder', b: 400, a: 1450},
+    {n: 'Infrared Range Finder', b: 1200, a: 3200},
+    {n: 'Basic Parachute', b: 100, a: 500},
+    {n: 'Sport Parachute', b: 1000, a: 700},
+    {n: 'Remote Detonator', b: 550, a: 650},
+    {n: 'Wrench', b: 150, a: 180},
+    {n: 'Halligan Bar', b: 1100, a: 885},
+    {n: 'Medical Bag', b: 2000, a: 1800},
+    {n: 'Field Resuscitator', b: 500, a: 425},
+    {n: 'Molotov Cocktail', a: 340, isNew: 1},
+  ]},
+  {t: L('Mochilas', 'Backpacks'), items: [
+    {n: 'Ruck Backpack', b: 2400, a: 1600},
+    {n: 'Gunner Backpack + Sling', b: 3500, a: 2400},
+    {n: 'Arsenal Backpack + 2 Slings', b: 5000, a: 4000},
+  ]},
+  {t: L('Acessórios', 'Attachments'), items: [
+    {n: 'SKS Bipod', b: 800, a: 810},
+    {n: 'Birdcage Flash Hider', b: 900, a: 600},
+    {n: 'BMR-308 Flash Hider', b: 1280, a: 930},
+    {n: 'Shift Foregrip', b: 1150, a: 840},
+    {n: 'GOL Multi-Caliber Suppressor', b: 1800, a: 1450},
+    {n: 'Full Choke', b: 1400, a: 1150},
+    {n: 'RC-556 Suppressor', b: 1550, a: 1310},
+    {n: 'AMR 50 Cal Muzzle Brake', b: 1600, a: 1380},
+    {n: '12 Gauge Suppressor', b: 1225, a: 1170},
+    {n: 'Compact P-1 Red Dot', a: 480, isNew: 1},
+    {n: 'PU 91/30 Scope (Mosin)', a: 780, isNew: 1},
+    {n: 'Leatherwood ART II (M14)', a: 950, isNew: 1},
+    {n: 'Evolys Bipod (Evo-3 Ultra)', a: 1450, isNew: 1},
+    {n: 'M14 Bipod', a: 1480, isNew: 1},
+    {n: 'Cross Rifle Muzzle Brake (TCX-SPR)', a: 780, isNew: 1},
+    {n: 'Clutch Lok Muzzle Brake (TCX-SPR)', a: 1100, isNew: 1},
+    {n: 'SRD762TI-QD Suppressor (TCX-SPR)', a: 1350, isNew: 1},
+    {n: 'SL7i-BL Suppressor (Evo-3 Ultra)', a: 1400, isNew: 1},
+    {n: '.30 Cal SS Phosphate Muzzle Brake (M14)', a: 950, isNew: 1},
+    {n: '.30 Cal Steel Black Flash Hider (M14)', a: 730, isNew: 1},
+  ]},
+  {t: L('Carregadores', 'Magazines'), items: [
+    {n: 'PP-19 Bizon 53 RND Magazine', a: 200, isNew: 1},
+    {n: 'TCX-SPR 28 RND Magazine', a: 50, isNew: 1},
+    {n: 'Evolys 50 RND Box', a: 110, isNew: 1},
+    {n: 'M14 10 RND Magazine', a: 60, isNew: 1},
+    {n: 'M14 20 RND Magazine', a: 110, isNew: 1},
+    {n: 'M14 30 RND Magazine', a: 180, isNew: 1},
+  ]},
+  {t: L('Veículos', 'Vehicles'), items: [
+    {n: 'Kodiak [M249]', b: 3750, a: 6750},
+    {n: 'Humvee [M249]', b: 3750, a: 8500},
+    {n: 'Humvee [Minigun]', b: 4500, a: 10000},
+    {n: 'Ural Defender', b: 6000, a: 7200},
+    {n: 'Ural Defender [M249]', b: 6750, a: 9500},
+    {n: 'L2A6', b: 14000, a: 22000},
+    {n: 'Little Bird AH-6M [Miniguns]', b: 7000, a: 12000},
+    {n: 'Little Bird AH-6R [Rockets]', b: 12500, a: 18800},
+    {n: 'Z20 Lakota [Miniguns]', b: 8000, a: 15000},
+    {n: 'Havoc', b: 18000, a: 28000},
+    {n: 'Wolf-110', a: 2200, isNew: 1},
+    {n: 'Wolf-110 [M2 Browning]', a: 7800, isNew: 1},
+    {n: 'Flakpanzer Gepard', a: 14000, isNew: 1},
+    {n: 'T-72B3', a: 16000, isNew: 1},
+  ]},
+];
+
+const ACT_CASH = [
+  {n: L('Kill com arma da categoria assalto', 'Kill with an assault-archetype weapon'), b: 1500, a: 2000},
+  {n: L('Capturar drill tower inimiga', 'Capture a hostile drill tower'), b: 750, a: 1500},
+  {n: L('Destruir FOB · bônus máximo', 'Destroy a FOB · max bonus'), sub: L('Escala com os supplies guardados, até 25.000', 'Scales with stored supplies, capped at 25,000'), a: 7500, isNew: 1},
+  {n: L('Hack de FOB · colegas no raio', 'FOB hack · teammates in radius'), sub: L('Quem hackeia continua com $2.500', 'The hacker still gets $2,500'), a: 1000, isNew: 1},
+  {n: L('Arrombar porta com Halligan Bar', 'Breach a door with the Halligan Bar'), sub: L('Uma vez por porta', 'Once per door'), k: 'Halligan Bar', a: 100, isNew: 1},
+  {n: L('Fechar porta de FOB aliada', 'Close a friendly FOB door'), a: 75, isNew: 1},
+];
+const ACT_XP = [
+  {n: L('Capturar drill tower inimiga', 'Capture a hostile drill tower'), b: 250, a: 300},
+  {n: L('Destruir FOB · bônus máximo', 'Destroy a FOB · max bonus'), a: 250, isNew: 1},
+  {n: L('Hack de FOB · colegas no raio', 'FOB hack · teammates in radius'), a: 250, isNew: 1},
+];
+const SPEC_REWARDS = [
+  {n: L('Variante armada destruída · XP', 'Armed variant destroyed · XP'), s: L('Comparado com a variante padrão', 'Compared with the default variant'), v: L('1,5×', '1.5×')},
+];
+const LOG_CASH = [
+  {n: L('Jogador entregue', 'Player delivered'), b: 150, a: 100},
+  {n: L('Jogador entregue (veículo terrestre)', 'Player delivered (ground vehicle)'), b: 500, a: 350},
+  {n: L('Viagem de volta (veículo terrestre)', 'Return trip (ground vehicle)'), b: 250, a: 150},
+  {n: L('Deploy de supply crate pequena', 'Deploy small supply crate'), b: 500, a: 250},
+  {n: L('Deploy de supply crate grande', 'Deploy large supply crate'), b: 1000, a: 500},
+  {n: L('Deploy de supply pallet', 'Deploy supply pallet'), b: 2500, a: 1250},
+];
+const LOG_XP = [
+  {n: L('Jogador entregue', 'Player delivered'), b: 50, a: 25},
+  {n: L('Viagem de volta (veículo terrestre)', 'Return trip (ground vehicle)'), b: 100, a: 50},
+  {n: L('Supply crate pequena', 'Small supply crate'), b: 250, a: 200},
+  {n: L('Supply crate grande', 'Large supply crate'), b: 500, a: 400},
+  {n: L('Supply crate pequena (aérea)', 'Small supply crate (air vehicle)'), b: 200, a: 150},
+  {n: L('Supply crate grande (aérea)', 'Large supply crate (air vehicle)'), b: 400, a: 300},
+  {n: 'Supply pallet', b: 500, a: 400},
+  {n: L('Supply pallet (veículo terrestre)', 'Supply pallet (ground vehicle)'), b: 750, a: 500},
+];
+const STREAK = [[50, 25, 10], [125, 50, 10], [25, 5, 25], [50, 25, 10]];
+const VEH_KILL = [
+  {t: L('Terrestres leves', 'Light ground'), items: [
+    {n: 'Bobcat', b: 250, a: 100},
+    {n: 'Dune Buggy', b: 750, a: 300},
+    {n: 'Kodiak', b: 1250, a: 500},
+    {n: 'Kodiak [Pickup]', b: 1250, a: 600, inf: 1},
+    {n: 'Kodiak [M249]', b: 1250, a: 3400, inf: 1},
+    {n: 'Wolf-110', a: 450, isNew: 1},
+    {n: 'Wolf-110 [M2 Browning]', a: 3900, isNew: 1},
+  ]},
+  {t: L('Humvee e Ural', 'Humvee and Ural'), items: [
+    {n: 'Humvee', b: 1500, a: 600},
+    {n: 'Humvee [M249]', b: 1500, a: 4250, inf: 1},
+    {n: 'Humvee [Minigun]', b: 1500, a: 5000, inf: 1},
+    {n: 'Ural', b: 2500, a: 1000},
+    {n: 'Ural Defender', b: 2500, a: 3600, inf: 1},
+    {n: 'Ural Defender [M249]', b: 2500, a: 4750, inf: 1},
+  ]},
+  {t: L('Helicópteros', 'Helicopters'), items: [
+    {n: 'MH-6', b: 3125, a: 1250},
+    {n: 'Little Bird AH-6M [Miniguns]', b: 3125, a: 6000, inf: 1},
+    {n: 'Little Bird AH-6R [Rockets]', b: 3125, a: 9400, inf: 1},
+    {n: 'Z20 Lakota', b: 3700, a: 1500},
+    {n: 'Z20 Lakota [Miniguns]', b: 3700, a: 7500, inf: 1},
+    {n: 'Havoc', b: 18000, a: 14000},
+  ]},
+  {t: L('Blindados', 'Armor'), items: [
+    {n: 'L2A6', b: 14000, a: 11000},
+    {n: 'SPH-2', b: 14000, a: 8000},
+    {n: 'Flakpanzer Gepard', a: 7000, isNew: 1},
+    {n: 'T-72B3', a: 8000, isNew: 1},
+  ]},
+];
+const BKILL = [
+  {n: 'L81 Mortar', b: 300, a: 650},
+  {n: 'Stingray', b: 300, a: 650},
+  {n: 'Gate', b: 170, a: 200},
+  {n: 'Hot Zone Magnet', b: 4500, a: 2750},
+  {n: 'Vanguard CIWS', b: 3000, a: 1200},
+  {n: 'Talon 9K-SAM', b: 2000, a: 650},
+  {n: 'Repair / Refuel Station', b: 400, a: 200},
+  {n: 'Door', b: 500, a: 100},
+  {n: 'MG Nest', a: 650, isNew: 1},
+  {n: 'Large Shelter', a: 250, isNew: 1},
+  {n: 'Wood Base', a: 15, isNew: 1},
+];
+const CRATE = [
+  {n: L('Small (blindada)', 'Small (armored)'), b: 500, a: 1000},
+  {n: L('Large (blindada)', 'Large (armored)'), b: 1000, a: 1600},
+  {n: 'Small', b: 500, a: 300},
+  {n: 'Large', b: 1000, a: 600},
+  {n: 'Supply pallet', b: 1000, a: 800},
+];
+const SPOT = [
+  {n: L('Sua parte quando outra facção destrói o alvo que você marcou', 'Your share when another faction destroys a target you spotted'), b: 50, a: 25, f: 'pct', delta: 'pp'},
+];
+
+const XP = [
+  {lv: 10, b: 35000, a: 25000},
+  {lv: 15, b: 110000, a: 54750},
+  {lv: 20, b: 250000, a: 111500},
+  {lv: 25, b: 365000, a: 206600},
+  {lv: 30, b: 500000, a: 318200},
+  {lv: 35, b: 750000, a: 525000},
+  {lv: 40, b: 975000, a: 712500},
+  {lv: 45, b: 1225000, a: 920850},
+  {lv: 50, b: 1500000, a: 1150000},
+];
+
+/* níveis: 0 = liberado desde o início; cb/ca = custo de desbloqueio antes/depois */
+const PROG = {
+  WARDOG: {max: 100, items: [
+    {n: 'Compact P-1 Red Dot', a: 21, ca: 12500, isNew: 1},
+    {n: 'Gold Market', a: 35, ca: 150000, isNew: 1},
+    {n: 'Tricon 1.5x Compact Prism Scope', b: 12, a: 26, from: 'Assault'},
+    {n: 'Spitfire 3X', b: 26, a: 31, from: 'Assault'},
+    {n: 'Mechanical Supply Pallet', b: 0, a: 5, cb: 0, ca: 10000},
+    {n: 'Ammo Supply Pallet', b: 0, a: 9, cb: 0, ca: 25000},
+    {n: 'Fuel Supply Pallet', b: 0, a: 16, cb: 0, ca: 50000},
+    {n: 'Judge', b: 18, a: 1, cb: 15000, ca: 5000},
+    {n: 'GGX 17', b: 1, a: 18, cb: 5000, ca: 15000},
+    {n: 'Deagle', b: 85, a: 65},
+    {n: 'GGX 18', b: 70, a: 85, cb: 50000, ca: 125000},
+    {n: 'Kobra Reflex', b: 21, a: 4},
+    {n: 'Compact T-2 Red Dot', b: 4, a: 17},
+    {n: 'Sport Parachute', b: 35, a: 34},
+    {n: '12g Rifled Slug', b: 41, a: 36},
+    {n: '7.62x39mm Armor Piercing (AP)', b: 63, a: 60},
+    {n: '.308 Win Flesh Damage (HP)', b: 65, a: 63},
+    {n: 'Level 3 Helmet & Armor', b: 60, a: 70},
+    {n: '5.45x39mm Flesh Damage (HP)', b: 16, a: 6},
+    {n: '9x19mm Flesh Damage (HP)', b: 6, a: 10},
+    {n: '5.56mm Flesh Damage (HP)', b: 10, a: 13},
+    {n: '5.56mm Armor Piercing (AP)', b: 83, a: 84},
+    {n: '5.45x39mm Armor Piercing (AP)', b: 93, a: 90},
+  ]},
+  Assault: {max: 50, items: [
+    {n: 'Molotov Cocktail', a: 13, ca: 25000, isNew: 1},
+    {n: 'TCX-SPR + 28 RND Magazine', a: 20, ca: 100000, isNew: 1},
+    {n: 'Cross Rifle Muzzle Brake (TCX-SPR)', a: 32, ca: 35000, isNew: 1},
+    {n: 'Clutch Lok Muzzle Brake (TCX-SPR)', a: 37, ca: 37500, isNew: 1},
+    {n: 'SRD762TI-QD Suppressor (TCX-SPR)', a: 40, ca: 40000, isNew: 1},
+    {n: 'Remote Detonator + C4 Charge', b: 2, a: 4, from: 'Support'},
+    {n: '2.5x Combat Optic', b: 26, a: 17, from: 'WARDOG'},
+    {n: 'Four Reticle Reflex', b: 6, a: 22, from: 'Medic'},
+    {n: '3x Tactical Prism Scope', b: 31, a: 33, from: 'WARDOG'},
+    {n: 'RVG Vertical Foregrip', b: 16, a: 38, cb: 10000, ca: 25000, from: 'Medic'},
+    {n: 'Spectr 4x', b: 21, a: 43, from: 'Support'},
+    {n: 'AK74 + 30 RND Magazine', b: 3, a: 0, cb: 10000, ca: 0},
+    {n: 'T-21', b: 0, a: 3, cb: 0, ca: 10000},
+    {n: 'STANAG 30 RND Magazine', b: 6, a: 3, cb: 10000, ca: 0, note: L('agora vem com a T-21', 'now comes with the T-21')},
+    {n: 'M4', b: 20, a: 28, cb: 100000, ca: 150000},
+    {n: 'FAL', cb: 200000, ca: 250000},
+    {n: 'AK74 75 RND Drum Magazine', b: 40, a: 36},
+    {n: 'Birdcage Flash Hider', b: 16, a: 2, cb: 15000, ca: 5000},
+    {n: 'Hexagon Brake', b: 2, a: 5, cb: 5000, ca: 12500},
+    {n: '3 Prong Flash Hider', b: 24, a: 8, cb: 20000, ca: 7500},
+    {n: 'CQ-2x Prism Combat Scope', b: 17, a: 12},
+    {n: 'CQR Tactical Front Rail Grip', b: 38, a: 14, cb: 25000, ca: 10000},
+    {n: 'CQB 74 Brake', b: 8, a: 16, cb: 12500, ca: 15000},
+    {n: 'PBS-4 Suppressor', b: 27, a: 19},
+    {n: 'TopComp Brake', b: 5, a: 21, cb: 7500, ca: 20000},
+    {n: 'RC-556 Suppressor', b: 29, a: 24},
+    {n: 'OKP 7 Reflex', b: 33, a: 26},
+    {n: 'TGP-A Suppressor 5.45', b: 19, a: 27},
+    {n: 'AR Multi-Caliber Suppressor', b: 21, a: 29, cb: 20000, ca: 22500},
+  ]},
+  Medic: {max: 50, items: [
+    {n: 'PP-19 Bizon + 53 RND Magazine', a: 0, isNew: 1},
+    {n: 'AMP-9', b: 0, a: 20, cb: 0, ca: 75000, note: L('agora junto com o carregador de 15', 'now bundled with the 15 RND magazine')},
+    {n: 'AMP-9 15 RND Magazine', b: 3, a: 20},
+    {n: 'AMP-9 20 RND Magazine', b: 0, a: 25, cb: 0, ca: 12500},
+    {n: 'Holographic Sight', b: 22, a: 6, from: 'Assault'},
+    {n: 'AFG Angled Foregrip', b: 14, a: 11, from: 'Assault'},
+    {n: 'MP5', b: 15, a: 4, cb: 75000, ca: 25000},
+    {n: 'Medical Bag', b: 24, a: 14, cb: 75000, ca: 50000},
+    {n: 'PP-19 Vityaz', b: 4, a: 15, cb: 25000, ca: 50000},
+    {n: 'Defibrillator', b: 11, a: 22, cb: 50000, ca: 110000},
+    {n: 'Super-45', cb: 150000, ca: 200000},
+    {n: 'Individual First Aid Kit', b: 9, a: 10},
+    {n: 'Adrenaline Pen', b: 14, a: 16},
+    {n: 'M18 Smoke Grenade: Black', b: 21, a: 23},
+    {n: 'Eclipse Flash Hider', b: 26, a: 1, cb: 22500, ca: 7500},
+    {n: 'MP5 30 RND Magazine', b: 25, a: 8, cb: 25000, ca: 10000},
+    {n: 'Ballista Brake', b: 13, a: 12},
+    {n: 'QD-5 Suppressor', b: 18, a: 13, cb: 17500, ca: 12500},
+    {n: 'PP-19 Vityaz 10 RND Magazine', b: 7, a: 17, cb: 7500, ca: 10000},
+    {n: 'PP-19 Vityaz Flash Hider', b: 22, a: 18, cb: 20000, ca: 17500},
+    {n: 'Vektor Frenix-X Micro Reflex Sight', b: 28, a: 19},
+    {n: 'PP-19 50 RND Vityaz Drum Magazine', b: 29, a: 21, cb: 50000, ca: 15000},
+    {n: 'PP-19-01 Vityaz 9x19 Suppressor', b: 43, a: 24, cb: 45000, ca: 20000},
+    {n: 'AMP-9 Tactical Flash Hider', b: 12, a: 26, cb: 10000, ca: 45000},
+    {n: 'AMP-9 9x19 Suppressor', b: 30, a: 27},
+    {n: 'Dual Port Brake', b: 1, a: 28, cb: 7500, ca: 22500},
+    {n: 'MP5 50 RND Drum Magazine', b: 45, a: 29, cb: 75000, ca: 50000},
+    {n: 'AMP-9 30 RND Magazine', b: 10, a: 30, cb: 10000, ca: 50000},
+    {n: 'Super-45 Flash Hider', b: 40, a: 36},
+    {n: 'Ghost LITE Muzzle Brake', b: 36, a: 40},
+    {n: 'Super-45 30 RND Magazine', b: 38, a: 43},
+    {n: 'AMP-9 50 RND Drum Magazine', b: 20, a: 45, cb: 15000, ca: 75000},
+  ]},
+  Recon: {max: 50, items: [
+    {n: 'PU 91/30 Scope (Mosin)', a: 10, ca: 12500, isNew: 1},
+    {n: 'M14 + 10 RND Magazine', a: 25, ca: 100000, isNew: 1},
+    {n: 'Leatherwood ART II (M14)', a: 27, ca: 35000, isNew: 1},
+    {n: 'M14 Bipod', a: 29, ca: 25000, isNew: 1},
+    {n: 'M14 20 RND Magazine', a: 31, ca: 27500, isNew: 1},
+    {n: 'M14 30 RND Magazine', a: 36, ca: 50000, isNew: 1},
+    {n: '.30 Cal SS Phosphate Muzzle Brake (M14)', a: 37, ca: 22500, isNew: 1},
+    {n: '.30 Cal Steel Black Flash Hider (M14)', a: 42, ca: 27500, isNew: 1},
+    {n: 'BMR-308', b: 30, a: 20},
+    {n: 'SV98', b: 19, a: 18},
+    {n: 'MK22', b: 25, a: 30},
+    {n: 'Ghillie Headwear & Body Suit', b: 24, a: 26},
+    {n: 'Ghillie Headwear & Body Suit (Dead)', b: 27, a: 41},
+    {n: 'Compound Bow', b: 17, a: 16, cb: 75000, ca: 150000},
+    {n: 'Claymore', b: 22, a: 23, cb: 50000, ca: 90000},
+    {n: 'Range Finder', cb: 15000, ca: 25000},
+    {n: 'SVD 10 RND Magazine', b: 16, a: 17},
+    {n: 'Deadeye Flash Hider', b: 9, a: 6},
+    {n: 'DTK-1 Brake', b: 6, a: 9},
+    {n: '6-10x Scope MOA', b: 26, a: 19},
+    {n: 'SV98 Bipod', cb: 30000, ca: 17500},
+    {n: 'SRVV Brake', b: 20, a: 22},
+    {n: 'BMR-308 Flash Hider', b: 31, a: 24, cb: 25000, ca: 50000},
+    {n: '6-10x Scope MRAD', b: 18, a: 28},
+    {n: 'BMR-308 Suppressor', cb: 27500, ca: 25000},
+    {n: 'Constrictor Brake', b: 23, a: 34},
+    {n: 'AMR 50 Cal Muzzle Brake', b: 48, a: 38},
+    {n: '6x Marksman Scope + Reflex', b: 34, a: 43, cb: 35000, ca: 75000},
+    {n: 'Slicktap Brake', b: 28, a: 44},
+    {n: 'Frontier 2.5x-10x Precision Scope', b: 43, a: 47},
+    {n: '.50 Cal Heavy Suppressor', b: 37, a: 48},
+    {n: 'Three Port Brake', b: 36, a: 49},
+  ]},
+  Support: {max: 50, items: [
+    {n: 'Evo-3 Ultra + Evolys 50 RND Box', a: 30, ca: 200000, isNew: 1},
+    {n: 'Evolys Bipod (Evo-3 Ultra)', a: 33, ca: 75000, isNew: 1},
+    {n: 'SL7i-BL Suppressor (Evo-3 Ultra)', a: 40, ca: 35000, isNew: 1},
+    {n: '4x Combat Prism Scope with Reflex', b: 43, a: 21, from: 'Assault'},
+    {n: 'PKM', b: 30, a: 15, cb: 150000, ca: 100000},
+    {n: 'M249', b: 15, a: 20, cb: 100000, ca: 150000},
+    {n: 'MAAWS', b: 20, a: 18, cb: 125000, ca: 100000},
+    {n: 'MGL-40', cb: 200000, ca: 250000},
+    {n: 'Heavy Drill', cb: 25000, ca: 50000},
+    {n: '9K333 Verba', b: 16, a: 14},
+    {n: 'Improved Cylinder Choke', b: 14, a: 13},
+    {n: 'Full Choke', b: 19, a: 16},
+    {n: 'PKM Bipod', b: 33, a: 17, cb: 35000, ca: 25000},
+    {n: 'Slotted Flash Hider', b: 26, a: 19},
+    {n: 'M249 Bipod', b: 18, a: 24, cb: 15000, ca: 50000},
+    {n: 'M249 200 RND Box', b: 23, a: 26},
+    {n: 'Tread Brake', b: 17, a: 27},
+    {n: '12 Gauge Suppressor', b: 40, a: 32},
+  ]},
+  Pilot: {max: 50, items: [
+    {n: 'Little Bird AH-6M [Miniguns]', b: 4, a: 8, cb: 50000, ca: 125000},
+    {n: 'Z20 Lakota [Miniguns]', cb: 75000, ca: 85000},
+    {n: 'Havoc', cb: 500000, ca: 650000},
+  ]},
+  Driver: {max: 50, items: [
+    {n: 'Wolf-110', a: 8, ca: 50000, isNew: 1},
+    {n: 'Wolf-110 [M2 Browning]', a: 16, ca: 125000, isNew: 1},
+    {n: 'T-72B3', a: 20, ca: 250000, isNew: 1},
+    {n: 'Flakpanzer Gepard', a: 25, ca: 300000, isNew: 1},
+    {n: 'SPH-2', b: 90, a: 31, cb: 500000, ca: 350000, from: 'WARDOG'},
+    {n: 'Dune Buggy', b: 8, a: 9},
+    {n: 'Humvee', b: 15, a: 14, cb: 25000, ca: 75000},
+    {n: 'Ural Defender', b: 18, a: 15},
+    {n: 'Large Crate', b: 16, a: 17},
+    {n: 'Ural Defender [M249]', b: 25, a: 22, cb: 125000, ca: 100000},
+    {n: 'Humvee [M249]', b: 20, a: 24},
+  ]},
+};
+
+const MISC = [
+  {n: L('Pedido de assistência · duração do ping', 'Assistance request · ping duration'), b: 20, a: 60, f: 's'},
+  {n: L('Halligan Bar · usos', 'Halligan Bar · uses'), k: 'Halligan Bar', b: 5, a: 7},
+  {n: L('Munição de canhão 30mm · espaço no inventário', '30mm cannon ammo · inventory space'), sub: L('De 1×1 para 2×2', 'From 1×1 to 2×2'), k: '30mm', b: 1, a: 4, f: 'slots'},
+];
+const SPEC_MISC = [
+  {n: L('Troca de time bloqueada depois de entrar', 'Team switch lock after joining'), s: L('Só quando algum time lidera por mais de 10 pontos', 'Only when a team is more than 10 points ahead'), v: '15 min'},
+  {n: L('Desconto no vendor para o time perdedor', 'Vendor discount for the losing team'), s: L('Quando está 40 pontos ou mais atrás do 2º lugar; vale para todos os times', 'When 40+ points behind second place; applies to every team'), v: '20%'},
+  {n: L('Infrared Range Finder · bateria', 'Infrared Range Finder · battery'), s: L('De uso ativo; gasta mais rápido se ficar ligando e desligando', 'Of active use; drains faster if toggled on and off quickly'), v: '~80 s', k: 'Infrared Range Finder'},
+  {n: L('Munição 30mm · pilha máxima na mochila', '30mm ammo · max stack in a backpack'), s: L('No veículo continua 200', 'Vehicle storage stays at 200'), v: '50', k: '30mm'},
+  {n: L('Spotting · recompensas em geral', 'Spotting · rewards overall'), s: L('Agora escalam com o valor do alvo', 'Now scale with the value of the target'), v: '~−30%', d: 'dec', chg: 1},
+];
+
+/* =================================================================
+   FORMATAÇÃO
+   ================================================================= */
+let NF;
+const setNF = () => { NF = new Intl.NumberFormat(LANG === 'pt' ? 'pt-BR' : 'en-US', {maximumFractionDigits: 2}); };
+setNF();
+const F = {
+  num: v => NF.format(v),
+  money: v => '$' + NF.format(v),
+  k: v => v === 0 ? t('free') : v >= 1000 ? '$' + NF.format(v / 1000) + 'k' : '$' + NF.format(v),
+  pct: v => NF.format(v) + '%',
+  s: v => NF.format(v) + ' s',
+  x: v => NF.format(v) + '×',
+  slots: v => NF.format(v) + ' ' + (v === 1 ? t('slot') : t('slots')),
+  lvl: v => v === 0 ? t('start') : String(v),
+};
+const compact = v => v >= 1e6 ? NF.format(v / 1e6) + t('M') : v >= 1000 ? NF.format(v / 1000) + t('K') : NF.format(v);
+const compactMoney = v => v >= 1000 ? '$' + NF.format(v / 1000) + 'k' : '$' + NF.format(v);
+
+const pctOf = (b, a) => (b == null || a == null || b === 0) ? null : (a - b) / b * 100;
+const dirOf = (b, a) => a > b ? 'inc' : a < b ? 'dec' : 'same';
+function fmtPct(p) {
+  const abs = Math.abs(p);
+  const r = abs < 10 ? Math.round(abs * 10) / 10 : Math.round(abs);
+  if (r === 0) return '0%';
+  return (p > 0 ? '+' : '−') + NF.format(r) + '%';
+}
+const arrow = d => d === 'inc' ? '<i class="ar inc" aria-hidden="true">▲</i>' : d === 'dec' ? '<i class="ar dec" aria-hidden="true">▼</i>' : '';
+const signed = (v, unit) => (v > 0 ? '+' : '−') + NF.format(Math.abs(v)) + unit;
+
+function niceStep(range, count) {
+  const raw = range / count;
+  const mag = Math.pow(10, Math.floor(Math.log10(raw)));
+  const n = raw / mag;
+  return (n <= 1 ? 1 : n <= 2 ? 2 : n <= 2.5 ? 2.5 : n <= 5 ? 5 : 10) * mag;
+}
+function niceDomain(min, max, count) {
+  if (max === min) max = min + 1;
+  const step = niceStep(max - min, count || 4);
+  const lo = Math.floor(min / step) * step;
+  const hi = Math.ceil(max / step) * step;
+  const ticks = [];
+  for (let v = lo; v <= hi + step / 1e6; v += step) ticks.push(+v.toFixed(8));
+  return {lo, hi, ticks};
+}
+// escala de variação %: o lado negativo fica justo no menor valor, para não desperdiçar largura
+function pctDomain(mn, mx) {
+  const step = niceStep(mx - mn, 5);
+  const lo = mn < 0 ? (mx > 0 ? mn * 1.06 : Math.floor(mn / step) * step) : 0;
+  const hi = mx > 0 ? Math.ceil(mx / step) * step : -mn * 0.06;
+  const ticks = [];
+  for (let v = Math.ceil(lo / step) * step; v <= hi + step / 1e6; v += step) ticks.push(+v.toFixed(8));
+  if (!ticks.includes(0)) ticks.push(0);
+  ticks.sort((x, y) => x - y);
+  return {lo, hi, ticks};
+}
+const pos = (sc, v) => (v - sc.lo) / (sc.hi - sc.lo) * 100;
+
+/* =================================================================
+   COMPONENTE: lista antes → depois
+   ================================================================= */
+const STATE = {showNew: false};
+const RENDERERS = [];
+
+function segHTML(key, options, current) {
+  return '<div class="segc" role="group">' + options.map(([v, k]) =>
+    `<button type="button" data-k="${key}" data-v="${v}" data-i18n="${k}" aria-pressed="${v === current}">${t(k)}</button>`).join('') + '</div>';
+}
+
+function changeList(cfg) {
+  const el = document.getElementById(cfg.id);
+  if (!el) return;
+  el.classList.add('cl');
+  cfg.mode = cfg.mode || 'abs';
+  cfg.dirFilter = 'all';
+
+  const ctrl = cfg.ctrlId && document.getElementById(cfg.ctrlId);
+  if (ctrl) {
+    let h = '';
+    if (cfg.modes) h += segHTML('mode', [['abs', 'ctl.abs'], ['pct', 'ctl.pct']], cfg.mode);
+    if (cfg.filterUI) h += segHTML('dir', [['all', 'ctl.all'], ['inc', 'ctl.inc'], ['dec', 'ctl.dec']], 'all');
+    ctrl.innerHTML = h;
+    ctrl.addEventListener('click', e => {
+      const btn = e.target.closest('button[data-k]');
+      if (!btn) return;
+      if (btn.dataset.k === 'mode') cfg.mode = btn.dataset.v; else cfg.dirFilter = btn.dataset.v;
+      btn.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === btn)));
+      render();
+    });
+  }
+
+  const unitOf = it => F[it.f || cfg.unit || 'num'];
+
+  function deltaHTML(it) {
+    if (it.isNew) return `<span class="isnew">${t('new')}</span>`;
+    if (it.b == null || it.a == null) return '';
+    const d = dirOf(it.b, it.a);
+    const kind = it.delta || cfg.delta || 'pct';
+    let s;
+    if (kind === 'diff') s = signed(it.a - it.b, cfg.diffUnit ? t(cfg.diffUnit) : '');
+    else if (kind === 'pp') s = signed(it.a - it.b, t('pp'));
+    else {
+      const p = pctOf(it.b, it.a);
+      s = p == null ? (it.b === 0 ? t('was0') : '') : fmtPct(p);
+    }
+    return arrow(d) + s;
+  }
+
+  function absDomain(items) {
+    let mx = (typeof cfg.max === 'function' ? cfg.max() : cfg.max) || 0;
+    items.forEach(it => {
+      if (it.b != null) mx = Math.max(mx, it.b);
+      if (it.a != null) mx = Math.max(mx, it.a);
+    });
+    return niceDomain(0, mx || 1, cfg.ticks || 4);
+  }
+
+  function axisHTML(sc) {
+    const fmtA = cfg.mode === 'pct'
+      ? (v => (v > 0 ? '+' : v < 0 ? '−' : '') + NF.format(Math.abs(v)) + '%')
+      : (cfg.axisFmt || unitOf({}));
+    const n = sc.ticks.length;
+    return '<div class="cl-axis" aria-hidden="true"><div class="cl-track">' +
+      sc.ticks.map((v, i) => `<span class="ax${i === 0 ? ' first' : i === n - 1 ? ' last' : ''}" style="left:${pos(sc, v)}%">${fmtA(v)}</span>`).join('') +
+      '</div></div>';
+  }
+
+  function rowHTML(it, sc, withThumbs) {
+    const fv = unitOf(it);
+    const d = it.isNew ? 'new' : (it.b != null && it.a != null) ? dirOf(it.b, it.a) : 'none';
+    let tr = cfg.scale === 'row'
+      ? '<i class="rail"></i>'
+      : sc.ticks.map(v => `<i class="tk" style="left:${pos(sc, v)}%"></i>`).join('');
+    if (cfg.mode === 'pct') {
+      const z = pos(sc, 0);
+      tr += `<i class="zero" style="left:${z}%"></i>`;
+      if (it.p != null) {
+        const v = pos(sc, it.p);
+        tr += `<span class="bar ${d}" style="left:${Math.min(z, v)}%;width:${Math.abs(v - z)}%"></span>`;
+      } else {
+        tr += `<span class="cl-na">${it.isNew ? t('na.new') : it.b === 0 ? t('na.free') : ''}</span>`;
+      }
+    } else if (it.isNew && it.a != null) {
+      tr += `<span class="dot new" style="left:${pos(sc, it.a)}%"></span>`;
+    } else if (it.b != null && it.a != null) {
+      const xb = pos(sc, it.b), xa = pos(sc, it.a);
+      tr += `<span class="seg ${d}" style="left:${Math.min(xb, xa)}%;width:${Math.abs(xa - xb)}%"></span>` +
+            `<span class="dot before" style="left:${xb}%"></span>` +
+            `<span class="dot ${d}" style="left:${xa}%"></span>`;
+    } else {
+      tr += `<span class="cl-na">${cfg.naText ? t(cfg.naText) : ''}</span>`;
+    }
+    let vals;
+    if (it.isNew) vals = `<b>${fv(it.a)}</b>`;
+    else if (it.b != null && it.a != null) vals = `<s>${fv(it.b)}${it.inf ? '*' : ''}</s><span class="to"> → </span><b>${fv(it.a)}</b>`;
+    else vals = '<s>—</s>';
+    const name = tx(it.n);
+    const sub = cfg.subFn ? cfg.subFn(it) : tx(it.sub);
+    const stem = imgKey(it);
+    const nameHTML = `${name}${sub ? `<span class="cl-sub">${sub}</span>` : ''}`;
+    const inner = withThumbs ? `<span class="nm">${thumb(stem)}<span class="nm-t">${nameHTML}</span></span>` : nameHTML;
+    return `<div class="cl-row"><div class="cl-name"${pvAttrs(stem, name)}>${inner}</div>` +
+           `<div class="cl-track" aria-hidden="true">${tr}</div>` +
+           `<div class="cl-vals">${vals}</div><div class="cl-delta">${deltaHTML(it)}</div></div>`;
+  }
+
+  function byPct(x, y) {
+    if (x.p == null && y.p == null) return 0;
+    if (x.p == null) return 1;
+    if (y.p == null) return -1;
+    return y.p - x.p;
+  }
+  const lvlKey = it => it.a != null ? it.a : it.b != null ? it.b : 999;
+
+  function render() {
+    const src = typeof cfg.groups === 'function' ? cfg.groups() : cfg.groups;
+    const groups = src.map(g => {
+      let items = g.items.filter(it => {
+        if (it.isNew) return STATE.showNew && cfg.dirFilter === 'all';
+        if (cfg.dirFilter === 'all') return true;
+        return it.b != null && it.a != null && dirOf(it.b, it.a) === cfg.dirFilter;
+      }).map(it => Object.assign({}, it, {p: pctOf(it.b, it.a)}));
+      if (cfg.sort === 'pct') items.sort(byPct);
+      else if (cfg.sort === 'after') items.sort((x, y) => lvlKey(x) - lvlKey(y));
+      return {t: tx(g.t), items};
+    }).filter(g => g.items.length);
+
+    if (!groups.length) { el.innerHTML = `<p class="empty">${t('empty')}</p>`; return; }
+
+    const withThumbs = groups.some(g => g.items.some(it => imgKey(it)));
+
+    let shared = null;
+    if (cfg.mode === 'pct') {
+      let mn = 0, mx = 0;
+      groups.forEach(g => g.items.forEach(it => { if (it.p != null) { mn = Math.min(mn, it.p); mx = Math.max(mx, it.p); } }));
+      if (mn === 0 && mx === 0) mx = 10;
+      shared = pctDomain(mn, mx);
+    } else if (cfg.scale !== 'group' && cfg.scale !== 'row') {
+      shared = absDomain(groups.flatMap(g => g.items));
+    }
+
+    let html = '';
+    groups.forEach(g => {
+      if (g.t) html += `<div class="cl-group"><span class="t">${g.t}</span><span class="n">${g.items.length} ${g.items.length === 1 ? t('item1') : t('itemN')}</span></div>`;
+      if (cfg.scale === 'row' && cfg.mode !== 'pct') {
+        g.items.forEach(it => { html += rowHTML(it, absDomain([it]), withThumbs); });
+        return;
+      }
+      const sc = shared || absDomain(g.items);
+      html += axisHTML(sc);
+      g.items.forEach(it => { html += rowHTML(it, sc, withThumbs); });
+    });
+    el.innerHTML = html;
+  }
+
+  cfg.render = render;
+  RENDERERS.push(render);
+  render();
+}
+
+/* =================================================================
+   MONTAGEM
+   ================================================================= */
+const one = items => [{items}];
+
+// Combate
+changeList({id: 'cl-calibre', groups: one(CALIBRE), unit: 'num', max: 100, ticks: 4});
+changeList({id: 'cl-armor', groups: one(ARMOR), unit: 'pct', delta: 'pp', max: 100, axisFmt: v => v + '%'});
+changeList({id: 'cl-through', groups: one(THROUGH), unit: 'pct', max: 100, axisFmt: v => v + '%'});
+changeList({id: 'cl-chute', groups: one(CHUTE_PRICE), unit: 'money', axisFmt: compactMoney});
+changeList({id: 'cl-combat-misc', groups: one(COMBAT_MISC), scale: 'row'});
+
+function specTable(id, rows) {
+  const el = document.getElementById(id);
+  const draw = () => {
+    el.innerHTML = '<tbody>' + rows.map(r => {
+      const stem = imgOf(r.k), name = tx(r.n);
+      const label = `${name}${r.s ? `<small>${tx(r.s)}</small>` : ''}`;
+      return `<tr><th><span class="nm"${pvAttrs(stem, name)}>${thumb(stem)}<span class="nm-t">${label}</span></span></th><td>${r.d ? arrow(r.d) : ''}${tx(r.v)}</td></tr>`;
+    }).join('') + '</tbody>';
+  };
+  RENDERERS.push(draw);
+  draw();
+}
+specTable('spec-combat', SPEC_COMBAT);
+specTable('spec-rewards', SPEC_REWARDS);
+specTable('spec-misc', SPEC_MISC);
+
+// mapa de calor calibre × proteção
+function drawHeat() {
+  const el = document.getElementById('heat');
+  const cal = [...CALIBRE.map(c => ({n: c.n, k: c.a / 100})), {n: t('heat.other'), k: 1}];
+  const arm = [{n: t('heat.none'), r1: 0, r2: 0}, {n: t('heat.l3'), r1: 55, r2: 50}, {n: t('heat.l4'), r1: 65, r2: 60}];
+  const maxAbs = 25;
+  let h = '<thead><tr><th></th>' + arm.map(a => `<th scope="col">${a.n}</th>`).join('') + '</tr></thead><tbody>';
+  cal.forEach(c => {
+    h += `<tr><th scope="row">${c.n}</th>`;
+    arm.forEach(a => {
+      const before = 100 - a.r1;
+      const after = c.k * (100 - a.r2);
+      const p = (after / before - 1) * 100;
+      const d = Math.abs(p) < 0.05 ? 'same' : p > 0 ? 'inc' : 'dec';
+      const w = Math.min(Math.abs(p) / maxAbs, 1) * 62;
+      const bg = d === 'same' ? 'var(--mid)' : `color-mix(in oklab, var(--${d}) ${w.toFixed(0)}%, var(--mid))`;
+      h += `<td style="background:${bg}"><span class="v">${arrow(d)}${d === 'same' ? '0%' : fmtPct(p)}</span><span class="s">${NF.format(Math.round(before * 10) / 10)}% → ${NF.format(Math.round(after * 10) / 10)}%</span></td>`;
+    });
+    h += '</tr>';
+  });
+  el.innerHTML = h + '</tbody>';
+}
+RENDERERS.push(drawHeat);
+drawHeat();
+
+// paraquedas
+function drawChute() {
+  const el = document.getElementById('chute');
+  const top = 70, H = 250;
+  const y = m => (1 - m / top) * H;
+  const zones = [{cls: 'z-ok', from: 50, to: top}, {cls: 'z-risk', from: 10, to: 50}, {cls: 'z-no', from: 0, to: 10}];
+  const bar = '<div class="chute-bar" aria-hidden="true">' +
+    zones.map(z => `<div class="${z.cls}" style="height:${(z.to - z.from) / top * H}px"></div>`).join('') +
+    [0, 10, 50].map(m => `<span class="m" style="top:${y(m)}px">${m} m</span>`).join('') + '</div>';
+  const labels = t('chute');
+  const at = [60, 30, 5];
+  const lab = '<div class="chute-labels">' + labels.map((l, i) => `<div style="top:${y(at[i])}px"><b>${l[0]}</b><span>${l[1]}</span></div>`).join('') + '</div>';
+  el.innerHTML = bar + lab;
+}
+RENDERERS.push(drawChute);
+drawChute();
+
+// Construções
+changeList({id: 'cl-build', ctrlId: 'ctrl-build', groups: one(BUILD), unit: 'num', modes: true, mode: 'pct', sort: 'pct'});
+changeList({id: 'cl-drill', groups: one(DRILL), scale: 'row'});
+changeList({id: 'cl-bweap', groups: one(BWEAP), scale: 'row'});
+
+// Preços
+changeList({id: 'cl-price', ctrlId: 'ctrl-price', groups: PRICES, unit: 'money', modes: true, filterUI: true, mode: 'abs', sort: 'pct', scale: 'group', axisFmt: compactMoney});
+function drawPriceSummary() {
+  const all = PRICES.flatMap(g => g.items).filter(i => !i.isNew).map(i => Object.assign({p: pctOf(i.b, i.a)}, i));
+  const up = all.filter(i => i.a > i.b), down = all.filter(i => i.a < i.b);
+  const hi = up.reduce((m, i) => i.p > m.p ? i : m, up[0]);
+  const lo = down.reduce((m, i) => i.p < m.p ? i : m, down[0]);
+  const M = F.money;
+  document.getElementById('price-sum').innerHTML = LANG === 'pt'
+    ? `${all.length} itens mudaram de preço: ${up.length} subiram e ${down.length} caíram. Maior alta: ${hi.n}, de ${M(hi.b)} para ${M(hi.a)} (${fmtPct(hi.p)}). Maior queda: ${lo.n}, de ${M(lo.b)} para ${M(lo.a)} (${fmtPct(lo.p)}).`
+    : `${all.length} items changed price: ${up.length} went up and ${down.length} went down. Biggest increase: ${hi.n}, from ${M(hi.b)} to ${M(hi.a)} (${fmtPct(hi.p)}). Biggest drop: ${lo.n}, from ${M(lo.b)} to ${M(lo.a)} (${fmtPct(lo.p)}).`;
+}
+RENDERERS.push(drawPriceSummary);
+drawPriceSummary();
+
+// Recompensas
+changeList({id: 'cl-act-cash', groups: one(ACT_CASH), unit: 'money', axisFmt: compactMoney});
+changeList({id: 'cl-act-xp', groups: one(ACT_XP), unit: 'num'});
+changeList({id: 'cl-log-cash', groups: one(LOG_CASH), unit: 'money', axisFmt: compactMoney});
+changeList({id: 'cl-log-xp', groups: one(LOG_XP), unit: 'num'});
+changeList({id: 'cl-veh', ctrlId: 'ctrl-veh', groups: VEH_KILL, unit: 'money', modes: true, axisFmt: compactMoney});
+changeList({id: 'cl-bkill', groups: one(BKILL), unit: 'money', sort: 'pct', axisFmt: compactMoney});
+changeList({id: 'cl-crate', groups: one(CRATE), unit: 'money', axisFmt: compactMoney});
+changeList({id: 'cl-spot', groups: one(SPOT), scale: 'row'});
+
+function drawStreak() {
+  const h = t('streak.h'), rows = t('streak.rows');
+  document.getElementById('tbl-streak').innerHTML =
+    '<thead><tr>' + h.map(x => `<th>${x}</th>`).join('') + '</tr></thead><tbody>' +
+    STREAK.map((r, i) => `<tr><td>${rows[i]}</td><td>+${F.money(r[0])}</td><td>+${NF.format(r[1])}</td><td>${t('streak.n').replace('{n}', r[2])}</td></tr>`).join('') + '</tbody>';
+}
+RENDERERS.push(drawStreak);
+drawStreak();
+
+// Progressão: XP
+changeList({id: 'cl-xp', groups: () => one(XP.map(d => ({n: t('level') + ' ' + d.lv, b: d.b, a: d.a}))), unit: 'num', axisFmt: v => compact(v)});
+
+const xpChart = (function () {
+  const el = document.getElementById('xp-chart');
+  let lastW = 0;
+  function draw(force) {
+    const W = Math.floor(el.clientWidth);
+    if (!W || (W === lastW && !force)) return;
+    lastW = W;
+    const narrow = W < 520;
+    const H = narrow ? 250 : 320;
+    const m = {t: 16, r: narrow ? 70 : 96, b: 30, l: narrow ? 52 : 62};
+    const iw = W - m.l - m.r, ih = H - m.t - m.b;
+    const xs = lv => m.l + (lv - 10) / 40 * iw;
+    const yMax = 1600000;
+    const ys = v => m.t + ih - v / yMax * ih;
+    let g = '';
+    [0, 400000, 800000, 1200000, 1600000].forEach(v => {
+      g += `<line x1="${m.l}" x2="${m.l + iw}" y1="${ys(v)}" y2="${ys(v)}" class="${v === 0 ? 'base' : 'grid'}"/>` +
+           `<text x="${m.l - 10}" y="${ys(v)}" dy="0.32em" text-anchor="end" class="axl">${compact(v)}</text>`;
+    });
+    XP.forEach(d => { g += `<text x="${xs(d.lv)}" y="${m.t + ih + 20}" text-anchor="middle" class="axl">${t('lvlax')}${d.lv}</text>`; });
+    const pb = XP.map((d, i) => (i ? 'L' : 'M') + xs(d.lv).toFixed(1) + ',' + ys(d.b).toFixed(1)).join('');
+    const pa = XP.map((d, i) => (i ? 'L' : 'M') + xs(d.lv).toFixed(1) + ',' + ys(d.a).toFixed(1)).join('');
+    const area = pb + XP.slice().reverse().map(d => 'L' + xs(d.lv).toFixed(1) + ',' + ys(d.a).toFixed(1)).join('') + 'Z';
+    g += `<path d="${area}" class="gap"/><path d="${pb}" class="ln before"/><path d="${pa}" class="ln after"/>`;
+    XP.forEach(d => {
+      g += `<circle cx="${xs(d.lv)}" cy="${ys(d.b)}" r="4.5" class="pt before"/><circle cx="${xs(d.lv)}" cy="${ys(d.a)}" r="4.5" class="pt after"/>`;
+    });
+    const last = XP[XP.length - 1];
+    g += `<text x="${xs(50) + 12}" y="${ys(last.b)}" dy="0.32em" class="endl">S1 ${compact(last.b)}</text>`;
+    g += `<text x="${xs(50) + 12}" y="${ys(last.a)}" dy="0.32em" class="endl">S2 ${compact(last.a)}</text>`;
+    g += `<line class="cross" x1="0" x2="0" y1="${m.t}" y2="${m.t + ih}" visibility="hidden"/>`;
+    g += `<rect class="hit" x="${m.l - 10}" y="${m.t}" width="${iw + 20}" height="${ih}" fill="transparent"/>`;
+    el.innerHTML = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(t('xp.aria'))}">${g}</svg>`;
+    const tt = document.createElement('div');
+    tt.className = 'tt';
+    tt.hidden = true;
+    el.appendChild(tt);
+    const svg = el.querySelector('svg'), cross = svg.querySelector('.cross'), hit = svg.querySelector('.hit');
+    function move(ev) {
+      const r = svg.getBoundingClientRect();
+      const px = ev.clientX - r.left;
+      let best = XP[0];
+      XP.forEach(d => { if (Math.abs(xs(d.lv) - px) < Math.abs(xs(best.lv) - px)) best = d; });
+      const cx = xs(best.lv);
+      cross.setAttribute('x1', cx); cross.setAttribute('x2', cx); cross.setAttribute('visibility', 'visible');
+      tt.innerHTML = `<div class="h">${t('level')} ${best.lv}</div>` +
+        `<div class="r"><i class="mk before"></i>Season 1<b>${NF.format(best.b)}</b></div>` +
+        `<div class="r"><i class="mk dec"></i>Season 2<b>${NF.format(best.a)}</b></div>` +
+        `<div class="r">${arrow('dec')}${t('diff')}<b>${fmtPct(pctOf(best.b, best.a))}</b></div>`;
+      tt.hidden = false;
+      const tw = tt.offsetWidth;
+      let left = cx + 14;
+      if (left + tw > W) left = cx - 14 - tw;
+      tt.style.left = left + 'px';
+      tt.style.top = (m.t + 6) + 'px';
+    }
+    hit.addEventListener('pointermove', move);
+    hit.addEventListener('pointerdown', move);
+    hit.addEventListener('pointerleave', () => { cross.setAttribute('visibility', 'hidden'); tt.hidden = true; });
+  }
+  new ResizeObserver(() => draw(false)).observe(el);
+  draw(false);
+  return draw;
+})();
+RENDERERS.push(() => xpChart(true));
+
+// Progressão: trilhas
+let curTrack = 'WARDOG';
+const tabsEl = document.getElementById('prog-tabs');
+tabsEl.innerHTML = Object.keys(PROG).map(k =>
+  `<button type="button" role="tab" data-t="${k}" aria-selected="${k === curTrack}">${k}</button>`).join('');
+
+function costSub(it) {
+  const parts = [];
+  if (it.from) parts.push(t('from').replace('{x}', it.from));
+  if (it.cb != null && it.ca != null) parts.push(`${t('cost')} ${F.k(it.cb)} → ${F.k(it.ca)}${it.ca !== it.cb ? ' ' + arrow(dirOf(it.cb, it.ca)) : ''}`);
+  else if (it.ca != null) parts.push(`${t('cost')} ${F.k(it.ca)}`);
+  if (it.note) parts.push(tx(it.note));
+  return parts.join(' · ');
+}
+
+function progSummary() {
+  const items = PROG[curTrack].items.filter(i => !i.isNew);
+  const lv = items.filter(i => i.b != null && i.a != null);
+  const e = lv.filter(i => i.a < i.b).length, l = lv.filter(i => i.a > i.b).length;
+  const cost = items.filter(i => i.cb != null && i.ca != null);
+  const up = cost.filter(i => i.ca > i.cb).length, dn = cost.filter(i => i.ca < i.cb).length;
+  const news = PROG[curTrack].items.filter(i => i.isNew).length;
+  let s;
+  if (LANG === 'pt') {
+    s = `Na trilha <b>${curTrack}</b>: <b>${e}</b> ${e === 1 ? 'item libera' : 'itens liberam'} mais cedo, <b>${l}</b> mais tarde`;
+    if (cost.length) s += `; <b>${up}</b> ${up === 1 ? 'ficou mais caro' : 'ficaram mais caros'} para desbloquear e <b>${dn}</b> mais ${dn === 1 ? 'barato' : 'baratos'}`;
+    s += '.';
+    if (news) s += STATE.showNew
+      ? ` A lista também mostra ${news} ${news === 1 ? 'item novo' : 'itens novos'}.`
+      : ` Há ainda ${news} ${news === 1 ? 'item novo' : 'itens novos'} (marque “itens novos” no menu para ver).`;
+  } else {
+    s = `In the <b>${curTrack}</b> track: <b>${e}</b> ${e === 1 ? 'item unlocks' : 'items unlock'} earlier, <b>${l}</b> later`;
+    if (cost.length) s += `; <b>${up}</b> got pricier to unlock and <b>${dn}</b> cheaper`;
+    s += '.';
+    if (news) s += STATE.showNew
+      ? ` The list also shows ${news} new ${news === 1 ? 'item' : 'items'}.`
+      : ` There ${news === 1 ? 'is' : 'are'} also ${news} new ${news === 1 ? 'item' : 'items'} (tick “new items” in the menu to see ${news === 1 ? 'it' : 'them'}).`;
+  }
+  document.getElementById('prog-sum').innerHTML = s;
+}
+
+const progCfg = {
+  id: 'cl-prog', unit: 'lvl', delta: 'diff', diffUnit: 'lvlu', sort: 'after',
+  groups: () => [{items: PROG[curTrack].items}],
+  max: () => PROG[curTrack].max, ticks: 5,
+  axisFmt: v => t('lvlax') + v,
+  naText: 'na.lvl',
+  subFn: costSub,
+};
+changeList(progCfg);
+progSummary();
+RENDERERS.push(progSummary);
+tabsEl.addEventListener('click', e => {
+  const b = e.target.closest('button[data-t]');
+  if (!b) return;
+  curTrack = b.dataset.t;
+  tabsEl.querySelectorAll('button').forEach(x => x.setAttribute('aria-selected', String(x === b)));
+  progCfg.render();
+  progSummary();
+});
+
+// Progressão: custo de desbloqueio
+changeList({
+  id: 'cl-cost', ctrlId: 'ctrl-cost', unit: 'k', modes: true, mode: 'pct', sort: 'pct', scale: 'group', axisFmt: compactMoney,
+  groups: Object.keys(PROG).map(k => ({t: k, items: PROG[k].items.filter(i => i.cb != null && i.ca != null && !i.isNew).map(i => ({n: i.n, b: i.cb, a: i.ca, from: i.from}))})),
+  subFn: it => it.from ? t('from').replace('{x}', it.from) : '',
+});
+
+// Outros
+changeList({id: 'cl-misc', groups: one(MISC), scale: 'row'});
+
+// miniatura em títulos (ex.: Drill Rig)
+document.querySelectorAll('[data-th]').forEach(h => {
+  const stem = imgOf(h.dataset.th);
+  if (!stem) return;
+  h.insertAdjacentHTML('afterbegin', thumb(stem));
+  h.setAttribute('data-pv', stem);
+  h.setAttribute('data-pvl', h.dataset.th);
+});
+
+/* =================================================================
+   TOTAL DE NÚMEROS ALTERADOS
+   ================================================================= */
+const TOTAL = (function () {
+  const pairs = arr => arr.filter(i => !i.isNew && !i.inf && i.b != null && i.a != null && i.b !== i.a).length;
+  const progItems = Object.values(PROG).flatMap(tr => tr.items).filter(i => !i.isNew);
+  return pairs(CALIBRE) + pairs(ARMOR) + pairs(COMBAT_MISC) + pairs(BUILD) + pairs(DRILL) + pairs(BWEAP) +
+    pairs(PRICES.flatMap(g => g.items)) + pairs(ACT_CASH) + pairs(ACT_XP) + pairs(LOG_CASH) + pairs(LOG_XP) +
+    pairs(VEH_KILL.flatMap(g => g.items)) + pairs(BKILL) + pairs(CRATE) + pairs(SPOT) + pairs(XP) + pairs(MISC) +
+    progItems.filter(i => i.b != null && i.a != null && i.b !== i.a).length +
+    progItems.filter(i => i.cb != null && i.ca != null && i.cb !== i.ca).length +
+    SPEC_COMBAT.filter(s => s.chg).length + SPEC_MISC.filter(s => s.chg).length;
+})();
+
+/* =================================================================
+   IDIOMA
+   ================================================================= */
+function applyStatic() {
+  document.querySelectorAll('[data-i18n]').forEach(el => { el.innerHTML = t(el.dataset.i18n); });
+  document.getElementById('lede').innerHTML = t('lede').replace('{n}', NF.format(TOTAL));
+  document.title = t('doc.title');
+  const md = document.querySelector('meta[name="description"]');
+  if (md) md.setAttribute('content', t('doc.desc'));
+  document.documentElement.lang = LANG === 'pt' ? 'pt-BR' : 'en';
+  document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === LANG)));
+}
+
+function setLang(l) {
+  if (l === LANG) return;
+  LANG = l;
+  setNF();
+  try { localStorage.setItem('wd-lang', l); } catch (e) {}
+  applyStatic();
+  RENDERERS.forEach(f => f());
+}
+document.querySelector('.lang').addEventListener('click', e => {
+  const b = e.target.closest('button[data-lang]');
+  if (b) setLang(b.dataset.lang);
+});
+applyStatic();
+
+/* =================================================================
+   ITENS NOVOS E NAVEGAÇÃO
+   ================================================================= */
+const toggleNew = document.getElementById('toggle-new');
+toggleNew.addEventListener('change', () => {
+  STATE.showNew = toggleNew.checked;
+  RENDERERS.forEach(f => f());
+});
+
+(function navSpy() {
+  const links = [...document.querySelectorAll('.nav-links a')];
+  const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) {
+        links.forEach(a => a.classList.remove('on'));
+        const a = map.get(en.target.id);
+        if (a) a.classList.add('on');
+      }
+    });
+  }, {rootMargin: '-45% 0px -50% 0px'});
+  document.querySelectorAll('main section[id]').forEach(s => io.observe(s));
+})();
+
+/* =================================================================
+   PREVIEW DA IMAGEM (segue o mouse)
+   ================================================================= */
+(function preview() {
+  const pv = document.getElementById('pv');
+  const img = pv.querySelector('img'), lab = pv.querySelector('.pv-l');
+  let cur = null, lastX = 0, lastY = 0;
+  const GAP = 18;
+
+  function place(x, y) {
+    lastX = x; lastY = y;
+    const w = pv.offsetWidth, h = pv.offsetHeight;
+    let left = x + GAP, top = y + GAP;
+    if (left + w > window.innerWidth - 8) left = x - GAP - w;
+    if (top + h > window.innerHeight - 8) top = y - GAP - h;
+    if (left < 8) left = 8;
+    if (top < 8) top = 8;
+    pv.style.transform = `translate3d(${Math.round(left)}px, ${Math.round(top)}px, 0)`;
+  }
+  function show(el, x, y) {
+    const stem = el.getAttribute('data-pv');
+    if (cur !== el) {
+      cur = el;
+      img.removeAttribute('data-fb');
+      img.setAttribute('data-orig', imgOrig(stem));
+      img.src = imgURL(stem, 560);
+      lab.textContent = el.getAttribute('data-pvl') || '';
+    }
+    pv.hidden = false;
+    place(x, y);
+  }
+  function hide() { pv.hidden = true; cur = null; }
+  // a altura muda quando a imagem chega; reposiciona para não sair da tela
+  img.addEventListener('load', () => { if (cur) place(lastX, lastY); });
+
+  document.addEventListener('pointerover', e => {
+    if (e.pointerType === 'touch') return;
+    const el = e.target.closest('[data-pv]');
+    if (el) show(el, e.clientX, e.clientY);
+  });
+  document.addEventListener('pointermove', e => {
+    if (!cur || e.pointerType === 'touch') return;
+    if (!cur.contains(e.target)) { hide(); return; }
+    place(e.clientX, e.clientY);
+  });
+  document.addEventListener('pointerout', e => {
+    if (!cur) return;
+    if (!e.relatedTarget || !cur.contains(e.relatedTarget)) { if (e.pointerType !== 'touch') hide(); }
+  });
+  // no celular: toque no item abre, toque fora fecha
+  document.addEventListener('pointerdown', e => {
+    if (e.pointerType !== 'touch') return;
+    const el = e.target.closest('[data-pv]');
+    if (el) show(el, e.clientX, e.clientY - 40); else hide();
+  });
+  window.addEventListener('scroll', () => { if (cur) hide(); }, {passive: true});
+
+  // se o redimensionador falhar, usa a imagem original
+  document.addEventListener('error', e => {
+    const im = e.target;
+    if (im && im.tagName === 'IMG' && im.dataset.orig && !im.dataset.fb) {
+      im.dataset.fb = '1';
+      im.src = im.dataset.orig;
+    }
+  }, true);
+})();
+
+})();
+</script>
+</body>
+</html>
